@@ -1,0 +1,51 @@
+:root {
+    /* Cores — paleta extraída da marca EcoByte (aproximada visualmente) */
+    --bg-base: #0a0b0d;
+    --bg-elevated: #16181c;
+    --fg-primary: #f5f6f7;
+    --fg-muted: #a7acb3;
+
+    --brand-blue: #1f6fa8;
+    --brand-blue-light: #4fa8db;
+    --brand-blue-dark: #123a57;
+    --brand-blue-rgb: 31, 111, 168;
+
+    --brand-green: #4caf50;
+    --brand-green-light: #8bc34a;
+    --brand-green-dark: #2e6b32;
+    --brand-green-rgb: 76, 175, 80;
+
+    --brand-gradient: linear-gradient(120deg, var(--brand-blue) 0%, var(--brand-green) 100%);
+
+    /* alias de compatibilidade com estilos que já usavam --accent */
+    --accent: var(--brand-blue);
+
+    /* Cores de estado do timer: mantidas deliberadamente separadas da
+    paleta de marca — seguem a semântica universal de semáforo, mesmo
+     que o verde de sucesso seja próximo do verde da marca. */
+    --state-success: #34d399;
+    --state-warning: #fbbf24;
+    --state-danger: #f87171;
+
+    /* Tipografia */
+    --font-display: clamp(3.5rem, 6vw, 7rem);
+    --font-heading: clamp(2.5rem, 4vw, 5rem);
+    --font-subheading: clamp(1.5rem, 2vw, 2.5rem);
+    --font-body: clamp(1.25rem, 1.4vw, 1.75rem);
+
+    /* Espaçamento */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-6: 3rem;
+    --space-8: 4rem;
+
+    /* Raio */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Safe area horizontal */
+    --safe-x: 7%;
+}
