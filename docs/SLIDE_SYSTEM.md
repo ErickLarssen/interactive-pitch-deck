@@ -36,3 +36,8 @@ Se modal aberto: ESC fecha modal primeiro, não navega.
 ## Convenções
 Um componente por tipo em src/slides/, nome PascalCase + sufixo Slide
 (ex.: CoverSlide.tsx, TeamSlide.tsx).
+
+## Tipo de slide adicionado: document-gallery
+Renderiza N botões (definidos em slideContent.ts); cada um abre um
+Modal (variante size="large") contendo um DocumentViewer com zoom.
+Usado no slide 14 (Documentação).

@@ -21,3 +21,14 @@
       já está apresentando
 - [ ] Trocar de apresentador pelo dock finaliza o anterior automaticamente
       (conferir tempo realizado registrado)
+      - [ ] Slide de Documentação: os 4 botões abrem o modal correto
+- [ ] Dentro do modal: scroll do mouse e botões +/- aplicam zoom; arrastar
+      com o mouse navega a imagem ampliada; botão de reset volta a 100%
+- [ ] ESC fecha o modal do documento sem navegar de slide (mesmo
+      comportamento já validado nos outros modais)
+- [ ] Logo da capa: aumentar --cover-logo-scale não move o subtítulo/meta
+- [ ] Documento em zoom 100%: a imagem inteira aparece, sem corte nas bordas
+- [ ] Arrastar a imagem ampliada e soltar o botão fora da área do documento não trava o modal
+- [ ] Botão "X" no canto do modal sempre fecha, nos 4 documentos
+- [ ] Clicar na área fora do modal (fora dos 85vw/85vh) fecha o modal
+- [ ] ESC fecha o modal de documento sem precisar recarregar a página

@@ -5,6 +5,7 @@ import {
     StakeholderMapContent,
     OdsGridContent,
     ClosingContent,
+    DocumentGalleryContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -117,7 +118,7 @@ export const infoCardsContent: Record<string, InfoCardsContent> = {
         ],
         flow: ['SOLICITADO', 'AGENDADO', 'EM COLETA', 'COLETADO', 'ENCAMINHADO'],
         // Nota da equipe (não exibida no slide): usar aqui só os estados que
-        // realmente existem no software hoje — não antecipar funcionalidade
+        // realmente existem no software hoje, não antecipar funcionalidade
         // que ainda não foi implementada.
     },
 };
@@ -199,7 +200,7 @@ export const stakeholderMapContent: Record<string, StakeholderMapContent> = {
         ],
         // Nota da equipe (não exibida no slide): usar sempre "potencial
         // parceiro"/"ator do ecossistema" para Prefeitura e cooperativas,
-        // a menos que exista parceria de fato firmada — evita uma pergunta
+        // a menos que exista parceria de fato firmada, evita uma pergunta
         // desconfortável da banca.
     },
 };
@@ -236,5 +237,17 @@ export const closingContent: Record<string, ClosingContent> = {
         projectName: 'EcoByte',
         tagline: 'Tecnologia para conectar pessoas ao descarte responsável.',
         thanks: 'Obrigado.',
+    },
+};
+
+export const documentGalleryContent: Record<string, DocumentGalleryContent> = {
+    documentacao: {
+        headline: 'Documentação do projeto',
+        documents: [
+            { id: 'doc-navegacao', label: 'Diagrama de Navegação', src: '/assets/documents/diagrama-navegacao.png' },
+            { id: 'doc-casos-uso', label: 'Casos de Uso', src: '/assets/documents/casos-de-uso.png' },
+            { id: 'doc-idef0', label: 'IDEF-0', src: '/assets/documents/idef-0.png' },
+            { id: 'doc-bpmn', label: 'BPMN', src: '/assets/documents/bpmn.png' },
+        ],
     },
 };

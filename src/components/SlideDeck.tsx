@@ -11,19 +11,32 @@ import { SequentialStepsSlide } from '../slides/SequentialStepsSlide';
 import { StakeholderMapSlide } from '../slides/StakeholderMapSlide';
 import { OdsGridSlide } from '../slides/OdsGridSlide';
 import { ClosingSlide } from '../slides/ClosingSlide';
+import { DocumentGallerySlide } from '../slides/DocumentGallerySlide';
 
 function renderSlide(type: string) {
     switch (type) {
-        case 'cover': return <CoverSlide />;
-        case 'team': return <TeamSlide />;
-        case 'stat-highlight': return <StatHighlightSlide />;
-        case 'info-cards': return <InfoCardsSlide />;
-        case 'sequential-steps': return <SequentialStepsSlide />;
-        case 'stakeholder-map': return <StakeholderMapSlide />;
-        case 'ods-grid': return <OdsGridSlide />;
-        case 'closing': return <ClosingSlide />;
-        case 'content': return <ContentSlide />;
-        default: return null;
+        case 'cover':
+            return <CoverSlide />;
+        case 'team':
+            return <TeamSlide />;
+        case 'stat-highlight':
+            return <StatHighlightSlide />;
+        case 'info-cards':
+            return <InfoCardsSlide />;
+        case 'sequential-steps':
+            return <SequentialStepsSlide />;
+        case 'stakeholder-map':
+            return <StakeholderMapSlide />;
+        case 'ods-grid':
+            return <OdsGridSlide />;
+        case 'closing':
+            return <ClosingSlide />;
+        case 'document-gallery':
+            return <DocumentGallerySlide />;
+        case 'content':
+            return <ContentSlide />;
+        default:
+            return null;
     }
 }
 
@@ -35,10 +48,12 @@ export function SlideDeck() {
 
     useEffect(() => {
         if (!containerRef.current) return;
+
         if (reducedMotion) {
             gsap.set(containerRef.current, { opacity: 1, y: 0 });
             return;
         }
+
         gsap.fromTo(
             containerRef.current,
             { opacity: 0, y: 24 },

@@ -1,6 +1,5 @@
 import { TeamMember } from '../types';
 
-// Placeholders — substituir pelos dados reais da equipe.
 export const team: TeamMember[] = [
     {
         id: 'integrante-1',

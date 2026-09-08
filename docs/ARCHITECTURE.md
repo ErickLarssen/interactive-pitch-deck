@@ -61,3 +61,35 @@ O dock de apresentador passou a ficar disponível em todos os slides
 apresentador de qualquer ponto da apresentação sem voltar ao slide de
 Integrantes. Ao trocar, o apresentador anterior é finalizado
 automaticamente (tempo realizado registrado), evitando perda de dado.
+
+## Decisão: logo da capa desacoplado via transform: scale()
+O aumento do logo passou a usar transform: scale() num "slot" de
+tamanho fixo, em vez de aumentar o width do próprio <img>. Motivo:
+qualquer aumento de caixa em fluxo normal empurra os irmãos abaixo —
+isso é comportamento padrão do modelo de caixas do CSS, não um bug
+específico. transform não afeta o fluxo do documento, então o
+subtítulo/meta nunca mais mudam de posição ao ajustar o tamanho visual
+do logo. Dois controles agora independentes:
+--cover-logo-scale (tamanho visual) e --cover-logo-clearance (espaço
+reservado abaixo, só ajustado se o logo maior encostar no subtítulo).
+
+## Decisão: DocumentViewer como componente reutilizável
+O visualizador de documentos com zoom/pan (scroll do mouse, arrastar,
+botões +/-/reset) foi implementado como componente próprio, não
+acoplado ao slide de Documentação — pode ser reaproveitado em qualquer
+slide futuro que precise mostrar uma imagem grande em modal.
+
+## Decisão: DocumentViewer usa Pointer Events + object-fit: contain
+Duas correções na visualização de documentos:
+1. Corte de bordas: modal-content--large tinha apenas max-height, não
+   height — a cadeia flex (document-viewer → stage) nunca recebia uma
+   altura definida, então o <img> (sem object-fit) renderizava no
+   tamanho natural do PNG e estourava o container, sendo cortado pelo
+   overflow:hidden do stage. Corrigido com height explícito +
+   object-fit: contain no <img>, que garante o encaixe total da
+   imagem no zoom 100%, independente da resolução nativa do arquivo.
+2. Pan/zoom trocou mouse events por Pointer Events com
+   setPointerCapture: garante que o elemento sempre recebe o
+   pointerup/pointercancel, mesmo que o cursor saia da área durante o
+   arraste. O deslocamento (pan) agora é aplicado direto no DOM via ref
+   durante o arraste, não via re-render por pixel (ver PERFORMANCE.md).

@@ -65,7 +65,9 @@ Nota da equipe: usar só os estados que o software realmente implementa.
 [DEFINIR STACK REAL DO PROJETO] — não preencher agora.
 
 ## 14 — Documentação
-[INSERIR DOCUMENTOS DO P.I.] — não preencher agora.
+4 botões, cada um abrindo um modal com zoom: Diagrama de Navegação,
+Casos de Uso, IDEF-0, BPMN. Documentos já produzidos pela equipe — ver
+src/data/slideContent.ts (documentGalleryContent).
 
 ## 15 — Demonstração
 [DEFINIR FORMATO DA DEMO] — não preencher agora.

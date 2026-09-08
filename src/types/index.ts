@@ -7,7 +7,8 @@ export type SlideType =
     | 'sequential-steps'
     | 'stakeholder-map'
     | 'ods-grid'
-    | 'closing';
+    | 'closing'
+    | 'document-gallery';
 
 export interface SlideBackground {
     kind: 'solid' | 'gradient' | 'video' | 'image' | 'beams';
@@ -115,4 +116,14 @@ export interface TimerThresholds {
 export interface PresentationConfig {
     totalPitchSeconds: number;
     thresholds: TimerThresholds;
+}
+
+export interface DocumentItem {
+    id: string;
+    label: string;
+    src: string;
+}
+export interface DocumentGalleryContent {
+    headline: string;
+    documents: DocumentItem[];
 }

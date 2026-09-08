@@ -13,7 +13,6 @@ body {
     background: var(--bg-base);
     color: var(--fg-primary);
     font-family: system-ui, sans-serif;
-    /* trocar por fonte local do projeto */
     overflow: hidden;
 }
 
@@ -52,19 +51,35 @@ body {
 
 .cover-slide__subtitle {
     font-size: var(--font-subheading);
-    color: var(--fg-muted);
+    color: var(--fg-primary);
     margin: 0 0 var(--space-2);
 }
 
 .cover-slide__meta {
     font-size: var(--font-body);
-    color: var(--fg-muted);
+    color: var(--fg-primary);
+}
+
+/* O slot reserva um espaço fixo no fluxo, é isso que garante que
+    subtítulo/meta nunca mudem de posição. O logo em si cresce
+    visualmente via transform: scale(), que não afeta o fluxo do
+    documento (elementos transformados continuam ocupando a caixa
+    original para fins de layout). Para aumentar o logo: suba
+    --cover-logo-scale. Se ele começar a encostar no subtítulo,
+   aumentem --cover-logo-clearance, nunca o width do slot. */
+.cover-slide__logo-slot {
+    --cover-logo-scale: 2.2;
+    --cover-logo-clearance: 190px;
+    width: clamp(220px, 20vw, 380px);
+    margin: 0 auto;
+    margin-bottom: var(--cover-logo-clearance);
 }
 
 .cover-slide__logo {
-    width: clamp(260px, 24vw, 460px);
-    margin: 0 auto var(--space-4);
     display: block;
+    width: 100%;
+    transform: scale(var(--cover-logo-scale));
+    transform-origin: top center;
 }
 
 .closing-slide__logo {
@@ -216,11 +231,34 @@ body {
 }
 
 .modal-content {
+    position: relative;
     background: var(--bg-elevated);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
     max-width: 480px;
     width: 90%;
+}
+
+.modal-content__close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: var(--fg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.modal-content__close:hover,
+.modal-content__close:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .team-modal__photo {
@@ -944,4 +982,123 @@ body {
 
 .ods-card:hover {
     transform: scale(1.04);
+}
+
+/* Document Gallery */
+.document-gallery__headline {
+    font-size: var(--font-heading);
+    margin-bottom: var(--space-4);
+    text-align: center;
+}
+
+.document-gallery__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+.document-gallery__button {
+    background: var(--bg-elevated);
+    border: 1px solid var(--brand-blue-light);
+    color: var(--fg-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-subheading);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    min-width: 220px;
+}
+
+.document-gallery__button:hover,
+.document-gallery__button:focus-visible {
+    background: var(--brand-blue-dark);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.modal-content--large {
+    /* Altura EXPLÍCITA (não só max-height): sem isso a cadeia flex
+        document-viewer → stage nunca recebe uma altura definida, e o
+        <img> (sem object-fit) renderiza no tamanho natural, estourando o
+        container e sendo cortado pelo overflow:hidden do stage.
+        92vw/92vh também deixava quase nenhuma margem clicável fora do
+     modal — reduzido para uma área de "clicar fora" de verdade. */
+    width: 85vw;
+    height: 85vh;
+    max-width: 85vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.document-viewer__title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-subheading);
+    text-align: center;
+}
+
+.document-viewer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.document-viewer__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.document-viewer__toolbar button {
+    background: var(--bg-base);
+    border: none;
+    color: var(--fg-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.document-viewer__toolbar button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.document-viewer__toolbar button:hover:not(:disabled) {
+    background: var(--brand-blue-dark);
+}
+
+.document-viewer__scale {
+    font-variant-numeric: tabular-nums;
+    min-width: 4ch;
+    text-align: center;
+    color: var(--fg-muted);
+}
+
+.document-viewer__stage {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: #ffffff;
+    /* os diagramas têm fundo branco — evita bordas escuras visíveis */
+    touch-action: none;
+    /* necessário para o pointer capture funcionar bem no arraste */
+}
+
+.document-viewer__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* garante que a imagem inteira sempre caiba no container no zoom
+        100%, independente da resolução/proporção nativa do PNG — é isso
+     que elimina o corte das bordas */
+    object-fit: contain;
+    user-select: none;
 }
