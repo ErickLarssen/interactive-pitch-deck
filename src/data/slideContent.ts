@@ -27,6 +27,12 @@ export const statHighlightContent: Record<string, StatHighlightContent> = {
             { value: '22,3%', label: 'documentado como formalmente coletado e reciclado' },
             { value: '82 Mt', label: 'projeção para 2030 caso a tendência continue' },
         ],
+        trendChart: {
+            from: { label: '2022', value: 62, displayValue: '62 Mt' },
+            to: { label: '2030 (projeção)', value: 82, displayValue: '82 Mt' },
+            ringLabel: 'reciclado corretamente',
+            ringPercent: 22.3,
+        },
         support:
             'O Global E-waste Monitor projeta aproximadamente 82 milhões de toneladas em 2030 — cerca de 32% acima de 2022.',
         impactPhrase: 'Mais resíduos estão sendo gerados do que devidamente encaminhados.',

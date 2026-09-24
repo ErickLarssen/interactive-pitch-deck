@@ -1,8 +1,11 @@
+import { InfinityGlow } from '../components/InfinityGlow';
+
 export function CoverSlide() {
     return (
         <section className="cover-slide">
             <h1 className="sr-only">EcoByte</h1>
             <div className="cover-slide__logo-slot">
+                <InfinityGlow className="cover-slide__glow" />
                 <img src="/assets/logos/ecobyte-logo.png" alt="EcoByte" className="cover-slide__logo" />
             </div>
             <p className="cover-slide__subtitle">

@@ -1,26 +1,17 @@
 import { Linkedin, Github, Globe } from 'lucide-react';
-
 import { team } from '../data/team';
-import { useStore } from '../store/useStore';
 import { Modal } from '../components/Modal';
-import { Button } from '../components/Button';
+import { TeamCarousel } from '../components/TeamCarousel';
 
 function TeamMemberModalContent({ memberId }: { memberId: string }) {
     const member = team.find((m) => m.id === memberId);
-
     if (!member) return null;
 
     return (
         <div className="team-modal">
-            <img
-                src={member.photo}
-                alt={member.name}
-                className="team-modal__photo"
-            />
-
+            <img src={member.photo} alt={member.name} className="team-modal__photo" />
             <h2>{member.name}</h2>
             <p>{member.role}</p>
-
             {member.skills && member.skills.length > 0 && (
                 <ul className="team-modal__skills">
                     {member.skills.map((skill) => (
@@ -28,7 +19,6 @@ function TeamMemberModalContent({ memberId }: { memberId: string }) {
                     ))}
                 </ul>
             )}
-
             <div className="team-modal__socials">
                 {member.socials?.linkedin && (
                     <a
@@ -41,7 +31,6 @@ function TeamMemberModalContent({ memberId }: { memberId: string }) {
                         <Linkedin size={22} />
                     </a>
                 )}
-
                 {member.socials?.github && (
                     <a
                         href={member.socials.github}
@@ -53,7 +42,6 @@ function TeamMemberModalContent({ memberId }: { memberId: string }) {
                         <Github size={22} />
                     </a>
                 )}
-
                 {member.socials?.portfolio && (
                     <a
                         href={member.socials.portfolio}
@@ -71,61 +59,10 @@ function TeamMemberModalContent({ memberId }: { memberId: string }) {
 }
 
 export function TeamSlide() {
-    const openModal = useStore((s) => s.openModal);
-    const startSpeaker = useStore((s) => s.startSpeaker);
-    const activeSpeakerId = useStore((s) => s.activeSpeakerId);
-
     return (
         <section className="team-slide">
             <h2 className="team-slide__title">Integrantes</h2>
-
-            <div className="team-grid">
-                {team.map((member) => (
-                    <div
-                        key={member.id}
-                        className="team-card"
-                        onClick={() => openModal(member.id)}
-                    >
-                        <img
-                            src={member.photo}
-                            alt={member.name}
-                            className="team-card__photo"
-                        />
-
-                        <p
-                            className="team-card__name"
-                            title={member.name}
-                        >
-                            {member.name}
-                        </p>
-
-                        <p
-                            className="team-card__role"
-                            title={member.role}
-                        >
-                            {member.role}
-                        </p>
-
-                        <Button
-                            className="team-card__present-btn"
-                            variant={
-                                activeSpeakerId === member.id
-                                    ? 'green'
-                                    : 'blue'
-                            }
-                            aria-pressed={activeSpeakerId === member.id}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                startSpeaker(member.id);
-                            }}
-                        >
-                            {activeSpeakerId === member.id
-                                ? 'Apresentando'
-                                : 'Apresentar'}
-                        </Button>
-                    </div>
-                ))}
-            </div>
+            <TeamCarousel />
 
             {team.map((member) => (
                 <Modal key={member.id} id={member.id}>

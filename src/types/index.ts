@@ -23,12 +23,19 @@ export interface StatItem {
     value: string;
     label: string;
 }
+export interface TrendChartData {
+    from: { label: string; value: number; displayValue: string };
+    to: { label: string; value: number; displayValue: string };
+    ringLabel: string;
+    ringPercent: number;
+}
 export interface StatHighlightContent {
     headline: string;
     stats: StatItem[];
     support?: string;
     impactPhrase?: string;
     source?: string;
+    trendChart?: TrendChartData;
 }
 
 export interface InfoCard {

@@ -32,3 +32,11 @@
 - [ ] Botão "X" no canto do modal sempre fecha, nos 4 documentos
 - [ ] Clicar na área fora do modal (fora dos 85vw/85vh) fecha o modal
 - [ ] ESC fecha o modal de documento sem precisar recarregar a página
+- [ ] Carrossel de Integrantes: card central sempre alinhado ao centro
+      do viewport, em 1920×1080 E em 1366×768
+- [ ] Clicar em qualquer card lateral recentraliza sem abrir modal nem
+      iniciar o timer da pessoa sem querer
+- [ ] Halo animado da capa: com "reduzir movimento" ativado no SO, vira
+      frame estático (sem fluxo, sem rotação)
+- [ ] Gráfico de Evidências: barras e anel animam uma vez ao entrar no
+      slide (voltar e entrar de novo deve reanimar)

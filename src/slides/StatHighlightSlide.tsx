@@ -1,6 +1,7 @@
 import { slides } from '../data/slides';
 import { useStore } from '../store/useStore';
 import { statHighlightContent } from '../data/slideContent';
+import { TrendChart } from '../components/TrendChart';
 
 export function StatHighlightSlide() {
     const currentSlide = useStore((s) => s.currentSlide);
@@ -19,6 +20,7 @@ export function StatHighlightSlide() {
                     </div>
                 ))}
             </div>
+            {content.trendChart && <TrendChart data={content.trendChart} />}
             {content.support && <p className="stat-highlight__support">{content.support}</p>}
             {content.impactPhrase && <p className="stat-highlight__impact">{content.impactPhrase}</p>}
             {content.source && <p className="stat-highlight__source">{content.source}</p>}

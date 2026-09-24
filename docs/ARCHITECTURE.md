@@ -93,3 +93,22 @@ Duas correções na visualização de documentos:
    pointerup/pointercancel, mesmo que o cursor saia da área durante o
    arraste. O deslocamento (pan) agora é aplicado direto no DOM via ref
    durante o arraste, não via re-render por pixel (ver PERFORMANCE.md).
+
+## Decisão: InfinityGlow e TrendChart como componentes visuais dedicados
+InfinityGlow (capa) gera uma lemniscata matematicamente e a anima via
+GSAP (dash-offset em loop + rotação lenta), em vez de usar imagem
+estática — permite recolorir/redimensionar via código e respeita
+prefers-reduced-motion (frame estático quando ativo). Cores do
+gradiente estão hardcoded (não var(--...)) por confiabilidade em SVG
+gradients numa apresentação ao vivo; replicar manualmente se a paleta
+de tokens.css mudar.
+
+TrendChart usa apenas os 3 números já sourced (62 Mt, 22,3%, 82 Mt) —
+optamos por barras + anel de progresso em vez de uma curva multi-ponto,
+que exigiria inventar valores intermediários não pesquisados.
+
+## Decisão: TeamCarousel mede a largura do viewport em runtime
+A centralização do card ativo depende da largura real do viewport
+(não de um valor fixo), medida via ref + resize listener. Isso evita
+duplicar um "número mágico" entre CSS e JS e garante centralização
+correta tanto em 1920x1080 quanto em 1366x768.
