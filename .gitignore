@@ -1,0 +1,26 @@
+# Dependências
+node_modules/
+
+# Build do Vite
+dist/
+
+# Artefatos gerados pelo `tsc -b`
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Variáveis de ambiente locais
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
