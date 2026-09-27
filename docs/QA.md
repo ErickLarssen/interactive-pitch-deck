@@ -26,7 +26,7 @@
       com o mouse navega a imagem ampliada; botão de reset volta a 100%
 - [ ] ESC fecha o modal do documento sem navegar de slide (mesmo
       comportamento já validado nos outros modais)
-- [ ] Logo da capa: aumentar --cover-logo-scale não move o subtítulo/meta
+- [ ] Logo da capa: aumentar --cover-logo-size não move o subtítulo/meta
 - [ ] Documento em zoom 100%: a imagem inteira aparece, sem corte nas bordas
 - [ ] Arrastar a imagem ampliada e soltar o botão fora da área do documento não trava o modal
 - [ ] Botão "X" no canto do modal sempre fecha, nos 4 documentos
@@ -36,7 +36,24 @@
       do viewport, em 1920×1080 E em 1366×768
 - [ ] Clicar em qualquer card lateral recentraliza sem abrir modal nem
       iniciar o timer da pessoa sem querer
-- [ ] Halo animado da capa: com "reduzir movimento" ativado no SO, vira
-      frame estático (sem fluxo, sem rotação)
+- [ ] Capa: painel glass centralizado e legível em 1920×1080 e 1366×768;
+      mesh escuro some com crossfade ao sair da capa e volta ao retornar
 - [ ] Gráfico de Evidências: barras e anel animam uma vez ao entrar no
       slide (voltar e entrar de novo deve reanimar)
+- [ ] Fonte Saira (slides 2+): nenhum título/card estoura ou corta texto em
+      1366×768 (conferir slide a slide, em especial Integrantes)
+- [ ] Cursor neon segue o mouse, some ao sair da janela e não bloqueia
+      clique em botões/cards; desligado com "reduzir movimento"
+- [ ] Slide Contexto: waffle anima (grade + contagem 0→62, depois verde
+      + 0→22,3%) e reanima ao sair e voltar; hover destaca o grupo
+- [ ] Slide Contexto cabe sem corte vertical em 1366×768
+- [ ] Slide Problema: linha do percurso desenha e cards entram em
+      sequência; hover com brilho seguindo o mouse; cabe sem corte em
+      1366×768 (sem sobrepor o Speaker Dock)
+- [ ] Slides Público-alvo, Diferenciais e Funcionalidades continuam
+      com a grade padrão, sem mudança
+- [ ] Slides 5–11: cards entram em sequência, hover (elevação + brilho
+      seguindo o mouse) funciona e nada corta em 1366×768
+- [ ] Slide Evidências: contagem termina exatamente em 62 Mt / 22,3% / 82 Mt
+- [ ] Slide Stakeholders: "Potencial parceiro" com selo tracejado
+- [ ] Slide 17 (Próximos passos) continua no visual anterior

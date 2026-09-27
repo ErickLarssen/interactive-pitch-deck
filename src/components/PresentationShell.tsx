@@ -4,12 +4,15 @@ import { useKeyboardNav } from '../hooks/useKeyboardNav';
 import { useFullscreen } from '../hooks/useFullscreen';
 import { useGlobalTicker } from '../hooks/useGlobalTicker';
 import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference';
+import { usePremiumSpotlight } from '../hooks/usePremiumSpotlight';
 import { SlideDeck } from './SlideDeck';
 import { ProgressIndicator } from './ProgressIndicator';
 import { NavButtons } from '../controls/NavButtons';
 import { SpeakerDock } from './SpeakerDock';
 import { PresenterOverlay } from '../controls/PresenterOverlay';
 import { VideoBackground } from './VideoBackground';
+import { slides } from '../data/slides';
+import { CursorGlow } from './CursorGlow';
 
 const PITCH_BACKGROUND = {
     src: '/assets/videos/eco-motion-loop.mp4',
@@ -21,10 +24,12 @@ export function PresentationShell() {
     useFullscreen();
     useGlobalTicker();
     useReducedMotionPreference();
+    usePremiumSpotlight();
 
     const activeSpeakerId = useStore((s) => s.activeSpeakerId);
     const globalRunning = useStore((s) => s.globalRunning);
     const startGlobal = useStore((s) => s.startGlobal);
+    const isCover = useStore((s) => slides[s.currentSlide]?.type === 'cover');
 
     useEffect(() => {
         if (activeSpeakerId && !globalRunning) {
@@ -40,11 +45,15 @@ export function PresentationShell() {
                 poster={PITCH_BACKGROUND.poster}
             />
             <div className="app-background-scrim" aria-hidden="true" />
+            {/* Mesh da capa: camada extra sobre o mesmo vídeo persistente,
+                visível só no slide cover (crossfade via CSS). */}
+            <div className="app-background-mesh" data-active={isCover} aria-hidden="true" />
             <SlideDeck />
             <ProgressIndicator />
             <NavButtons />
             <SpeakerDock />
             <PresenterOverlay />
+            <CursorGlow />
         </div>
     );
 }

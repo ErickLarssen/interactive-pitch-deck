@@ -94,14 +94,9 @@ Duas correções na visualização de documentos:
    arraste. O deslocamento (pan) agora é aplicado direto no DOM via ref
    durante o arraste, não via re-render por pixel (ver PERFORMANCE.md).
 
-## Decisão: InfinityGlow e TrendChart como componentes visuais dedicados
-InfinityGlow (capa) gera uma lemniscata matematicamente e a anima via
-GSAP (dash-offset em loop + rotação lenta), em vez de usar imagem
-estática — permite recolorir/redimensionar via código e respeita
-prefers-reduced-motion (frame estático quando ativo). Cores do
-gradiente estão hardcoded (não var(--...)) por confiabilidade em SVG
-gradients numa apresentação ao vivo; replicar manualmente se a paleta
-de tokens.css mudar.
+## Decisão: TrendChart como componente visual dedicado
+(InfinityGlow, o halo de lemniscata animado da capa, foi removido no
+redesign premium da capa — ver "Decisão: capa premium" abaixo.)
 
 TrendChart usa apenas os 3 números já sourced (62 Mt, 22,3%, 82 Mt) —
 optamos por barras + anel de progresso em vez de uma curva multi-ponto,
@@ -112,3 +107,11 @@ A centralização do card ativo depende da largura real do viewport
 (não de um valor fixo), medida via ref + resize listener. Isso evita
 duplicar um "número mágico" entre CSS e JS e garante centralização
 correta tanto em 1920x1080 quanto em 1366x768.
+## Decisão: capa premium (mesh + glass), fundo continua no shell
+O tom escuro + mesh gradient da capa NÃO é um segundo fundo dentro do
+CoverSlide: é uma camada `.app-background-mesh` no PresentationShell,
+entre o scrim e o SlideDeck, ligada por `data-active` quando o slide
+atual é do tipo cover (crossfade de 600ms via CSS). Assim o vídeo
+continua sendo um único elemento persistente (decisão acima) e a capa
+ganha a atmosfera própria sem remontar nada. O halo InfinityGlow foi
+removido a pedido (competia com a leitura do texto).

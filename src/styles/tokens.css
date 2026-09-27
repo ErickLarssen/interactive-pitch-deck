@@ -4,6 +4,7 @@
     --bg-elevated: #16181c;
     --fg-primary: #f5f6f7;
     --fg-muted: #a7acb3;
+    --fg-subtle: #9ca3af; /* equivalente a gray-400; texto secundário da capa */
 
     --brand-blue: #1f6fa8;
     --brand-blue-light: #4fa8db;
@@ -28,6 +29,14 @@
     --state-danger: #f87171;
 
     /* Tipografia */
+    /* Display (só a capa): Eurostile Extended é comercial, usada só se
+       estiver instalada na máquina da apresentação. Senão cai na
+       Michroma, self-hosted via @fontsource/michroma. */
+    --font-family-display: 'Eurostile Extended', 'Michroma', system-ui, sans-serif;
+    /* Base (slide 2 em diante + controles): Saira — mesmo desenho
+       quadrado da Eurostile, mas largura normal e pesos reais (100–900),
+       bem mais legível no telão. Self-hosted via @fontsource-variable/saira. */
+    --font-family-base: 'Saira Variable', 'Saira', system-ui, sans-serif;
     --font-display: clamp(3.5rem, 6vw, 7rem);
     --font-heading: clamp(2.5rem, 4vw, 5rem);
     --font-subheading: clamp(1.5rem, 2vw, 2.5rem);

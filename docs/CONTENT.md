@@ -16,11 +16,14 @@ Headline: "O lixo eletrônico cresce. O descarte correto não acompanha."
 Dado: 62 milhões de toneladas de e-lixo geradas no mundo em 2022.
 Apoio: apenas 22,3% documentado como formalmente coletado/reciclado.
 Fonte: Global E-waste Monitor 2024 — ITU/UNITAR.
+Visual: gráfico waffle (62 Mt em 100 quadrados, 22,3% em verde) com
+count-up — ver waffleChart em slideContent.ts.
 
 ## 04 — Problema
 Três perguntas-guia: onde descartar, como transportar, o que acontece
 depois. Fecha citando o sistema brasileiro de logística reversa de
 eletroeletrônicos.
+Sem frase de introdução (removida para despoluir o slide).
 
 ## 05 — Evidências / Pesquisa
 Três números: 62 Mt (2022), 22,3% (reciclado), 82 Mt (projeção 2030).

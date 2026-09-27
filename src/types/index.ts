@@ -29,6 +29,16 @@ export interface TrendChartData {
     ringLabel: string;
     ringPercent: number;
 }
+// Waffle 10×10: o total vira 100 quadrados; highlightPercent define
+// quantos acendem. Todos os números vêm de fonte — nenhum é interpolado.
+export interface WaffleChartData {
+    total: number;
+    unit: string;
+    caption: string;
+    highlightPercent: number;
+    highlightLabel: string;
+    restLabel: string;
+}
 export interface StatHighlightContent {
     headline: string;
     stats: StatItem[];
@@ -36,14 +46,39 @@ export interface StatHighlightContent {
     impactPhrase?: string;
     source?: string;
     trendChart?: TrendChartData;
+    // Quando presente, substitui a lista de stats pelo gráfico (o número
+    // de destaque passa a ser exibido, com count-up, dentro dele).
+    waffleChart?: WaffleChartData;
 }
 
+export type InfoCardIconKey =
+    | 'map-pin'
+    | 'truck'
+    | 'recycle'
+    | 'house'
+    | 'store'
+    | 'building'
+    | 'door-open'
+    | 'pointer'
+    | 'network'
+    | 'clipboard'
+    | 'refresh'
+    | 'check'
+    | 'smartphone'
+    | 'warehouse'
+    | 'landmark';
 export interface InfoCard {
     icon?: string;
+    // Ícone de linha (lucide) usado pelo layout 'journey' no lugar do emoji.
+    iconKey?: InfoCardIconKey;
     title: string;
     description: string;
 }
 export interface InfoCardsContent {
+    // 'journey': cards premium numerados e conectados (etapas de um percurso).
+    // 'cards': mesmos cards premium, sem numeração/linha (itens paralelos).
+    // Omitido = grade padrão original.
+    layout?: 'journey' | 'cards';
     headline: string;
     intro?: string;
     cards: InfoCard[];
@@ -54,10 +89,13 @@ export interface InfoCardsContent {
 
 export interface StepItem {
     number: string;
+    iconKey?: InfoCardIconKey;
     title: string;
     description: string;
 }
 export interface SequentialStepsContent {
+    // 'journey': renderiza os passos com JourneyCards (igual ao slide Problema).
+    layout?: 'journey';
     headline: string;
     steps: StepItem[];
     flow?: string[];
@@ -68,6 +106,10 @@ export interface StakeholderNode {
     label: string;
     tag: string;
     description: string;
+    iconKey?: InfoCardIconKey;
+    // 'potential' = parceria não firmada: selo tracejado no mapa, para
+    // nunca parecer parceria existente (ver nota da equipe em CONTENT.md).
+    status?: 'active' | 'potential';
 }
 export interface StakeholderMapContent {
     headline: string;
@@ -79,6 +121,8 @@ export interface OdsItem {
     number: string;
     short: string;
     description: string;
+    // Cor oficial do ODS (paleta ONU), usada só como faixa de destaque.
+    color?: string;
 }
 export interface OdsGridContent {
     headline: string;

@@ -2,12 +2,32 @@ import { slides } from '../data/slides';
 import { useStore } from '../store/useStore';
 import { infoCardsContent } from '../data/slideContent';
 import { FlowStrip } from '../components/FlowStrip';
+import { JourneyCards } from '../components/JourneyCards';
 
 export function InfoCardsSlide() {
     const currentSlide = useStore((s) => s.currentSlide);
     const slideId = slides[currentSlide].id;
     const content = infoCardsContent[slideId];
     if (!content) return null;
+
+    // Layouts premium: 'journey' (numerado e conectado) e 'cards'
+    // (paralelo). Fechamento em destaque ao lado do texto de apoio.
+    if (content.layout) {
+        return (
+            <section className={`info-cards info-cards--premium info-cards--${content.layout}`}>
+                <h2 className="info-cards__headline">{content.headline}</h2>
+                {content.intro && <p className="info-cards__intro">{content.intro}</p>}
+                <JourneyCards items={content.cards} connected={content.layout === 'journey'} />
+                {content.flow && <FlowStrip steps={content.flow} />}
+                {(content.closingPhrase || content.support) && (
+                    <div className="info-cards__footer" data-single={!(content.closingPhrase && content.support)}>
+                        {content.closingPhrase && <p className="premium-callout">{content.closingPhrase}</p>}
+                        {content.support && <p className="info-cards__support">{content.support}</p>}
+                    </div>
+                )}
+            </section>
+        );
+    }
 
     return (
         <section className="info-cards">

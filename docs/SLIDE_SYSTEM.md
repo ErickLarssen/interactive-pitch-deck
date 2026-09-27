@@ -41,3 +41,16 @@ Um componente por tipo em src/slides/, nome PascalCase + sufixo Slide
 Renderiza N botões (definidos em slideContent.ts); cada um abre um
 Modal (variante size="large") contendo um DocumentViewer com zoom.
 Usado no slide 14 (Documentação).
+## Variante de layout: info-cards 'journey'
+InfoCardsContent.layout = 'journey' (hoje só no slide 04 — Problema)
+troca a grade padrão por JourneyCards: cards numerados (01–03) com
+ícone de linha lucide (InfoCard.iconKey), ligados por uma linha em
+gradiente da marca, e rodapé em duas colunas (closingPhrase em
+destaque | support discreto). Slides info-cards sem `layout` seguem
+com a grade padrão, inalterada.
+
+## Layouts premium por conteúdo
+InfoCardsContent.layout: 'journey' | 'cards'; SequentialStepsContent.layout:
+'journey'. StakeholderNode ganhou iconKey e status ('active' | 'potential');
+OdsItem ganhou color (cor oficial). Todos opcionais: conteúdo sem esses
+campos renderiza o visual anterior.

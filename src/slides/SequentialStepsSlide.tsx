@@ -2,12 +2,26 @@ import { slides } from '../data/slides';
 import { useStore } from '../store/useStore';
 import { sequentialStepsContent } from '../data/slideContent';
 import { FlowStrip } from '../components/FlowStrip';
+import { JourneyCards } from '../components/JourneyCards';
 
 export function SequentialStepsSlide() {
     const currentSlide = useStore((s) => s.currentSlide);
     const slideId = slides[currentSlide].id;
     const content = sequentialStepsContent[slideId];
     if (!content) return null;
+
+    // Layout 'journey' (slide Solução): mesmos cards do slide Problema.
+    // A numeração vem da posição (01…), igual ao número do conteúdo.
+    if (content.layout === 'journey') {
+        return (
+            <section className="sequential-steps sequential-steps--journey">
+                <h2 className="sequential-steps__headline">{content.headline}</h2>
+                <JourneyCards items={content.steps} />
+                {content.flow && <FlowStrip steps={content.flow} />}
+                {content.closingPhrase && <p className="premium-callout">{content.closingPhrase}</p>}
+            </section>
+        );
+    }
 
     return (
         <section className="sequential-steps">

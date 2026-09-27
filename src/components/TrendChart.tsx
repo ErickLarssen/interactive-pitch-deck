@@ -78,7 +78,7 @@ export function TrendChart({ data }: { data: TrendChartData }) {
                     />
                 </svg>
                 <div className="trend-chart__ring-label">
-                    <strong>{data.ringPercent}%</strong>
+                    <strong>{data.ringPercent.toLocaleString('pt-BR')}%</strong>
                     <span>{data.ringLabel}</span>
                 </div>
             </div>

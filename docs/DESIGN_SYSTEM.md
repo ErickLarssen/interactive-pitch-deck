@@ -86,3 +86,71 @@ corretamente por linha. Ver .team-grid em global.css.
 Cards, etapas, números e nós de diagrama aumentam via transform: scale()
 no hover, não via font-size — mesmo efeito perceptível de "letra maior",
 sem o custo de reflow que animar font-size causaria (ver PERFORMANCE.md).
+
+## Capa premium (exceção de glass)
+Decisão anterior: glass effect só em overlays de timer/avatar.
+Problema: o redesign da capa pediu um painel glassmorphism atrás do
+logo/textos. Nova regra: glass permitido também no painel da capa
+(`.cover-slide__panel`) — borda 1px rgba(255,255,255,.1), blur 18px,
+fundo quase transparente, raio 32px. Continua proibido em cards de
+conteúdo dos demais slides.
+Linha principal branca #fff peso 600; linha acadêmica peso 400 em
+--fg-subtle (#9ca3af, equivalente a gray-400).
+Logo: slot com altura fixa (--cover-logo-slot-height) + imagem
+absoluta ancorada pela base visível da marca; --cover-logo-size
+muda só o tamanho visual (cresce para cima), sem mover o texto.
+Fundo da capa: camada .app-background-mesh (#0a0f1c a 55% + radiais
+azul/verde da marca, blur 40px) sobre o mesmo vídeo do shell.
+
+## Tipografia: duas famílias
+Decisão anterior: Eurostile Extended (fallback Michroma) no projeto todo.
+Problema: fonte estendida ocupa ~30–40% mais largura — texto estourava
+a partir do slide 4 — e é menos legível a distância em corpo de texto.
+Nova regra:
+- --font-family-display ('Eurostile Extended', 'Michroma'): só a capa
+  (.cover-slide). Eurostile é comercial; só é usada se instalada no SO
+  da apresentação. Michroma é self-hosted (@fontsource/michroma).
+- --font-family-base ('Saira Variable'): slide 2 em diante e todos os
+  controles (dock, timer, modais). Mesmo desenho quadrado da Eurostile,
+  largura normal, pesos reais 100–900. Self-hosted
+  (@fontsource-variable/saira) — funciona offline.
+
+## Gráfico waffle (WasteWaffle)
+Usado no slide Contexto para o dado de 62 Mt. Grade 10×10: cada
+quadrado = total/100 (≈0,62 Mt); os 22 primeiros (22,3%, arredondado)
+acendem em verde da marca = "formalmente coletado e reciclado"; o
+restante fica em ardósia neutra #56607a. Codificação destaque vs.
+neutro (não par categórico); contraste no fundo: verde 7,1:1,
+ardósia 3,1:1. Identidade nunca só por cor: legenda com valor e
+rótulo. Hover em quadrado/legenda destaca o grupo e mostra a
+quantidade aproximada (derivada: 62 × 22,3%). Versão textual completa
+em figcaption sr-only. Nenhum valor é interpolado ou inventado.
+
+## Sistema premium de cards (slides 4–11)
+Superfície única `.premium-card`: fundo --bg-elevated translúcido (sem
+blur — glass continua proibido em card de conteúdo), borda 1px branca
+a 8%, raio --radius-lg, brilho radial azul/verde que segue o mouse
+(listener global usePremiumSpotlight) e hover com translateY(-4px) +
+scale(1.04) — mesma regra de acessibilidade do auditório (escala via
+transform, nunca font-size). Peças associadas:
+- `.premium-icon`: ícone de linha lucide em tile azul; verde no hover.
+  Registro único em src/components/icons.ts; dados usam só a chave
+  (iconKey).
+- `.premium-callout`: frase de conclusão com barra em gradiente.
+- FlowStrip: pipeline de pílulas que acendem em sequência; a última
+  (destino) fica verde.
+Aplicação por slide:
+- 04 Problema, 09 Solução, 11 Funcionalidades: JourneyCards conectado
+  (numerado 01…, linha do percurso).
+- 06 Público-alvo, 10 Diferenciais: JourneyCards sem conexão (itens
+  paralelos, sem numeração).
+- 05 Evidências: números em cards com contagem (CountUpValue, texto
+  final = texto original) + gráfico em card próprio | notas.
+- 07 Stakeholders: centro pulsante, conexões desenhadas, nós premium.
+  Selo sólido = participante existente; selo tracejado = POTENCIAL
+  parceiro (reforça a nota da equipe: nunca parecer parceria firmada).
+- 08 ODS: faixa superior na cor oficial ONU de cada ODS (#FD9D24,
+  #BF8B2E, #3F7E44) — só decorativa, texto nunca usa essa cor.
+Slides fora dessa faixa (12–18) seguem no visual anterior; o slide
+17 (Próximos passos) compartilha o componente de etapas com o 09, mas
+só recebe o layout novo se o conteúdo tiver layout: 'journey'.

@@ -14,6 +14,14 @@ export const statHighlightContent: Record<string, StatHighlightContent> = {
         stats: [
             { value: '62 milhões de toneladas', label: 'de lixo eletrônico geradas no mundo em 2022' },
         ],
+        waffleChart: {
+            total: 62,
+            unit: 'milhões de toneladas',
+            caption: 'de lixo eletrônico geradas no mundo em 2022',
+            highlightPercent: 22.3,
+            highlightLabel: 'formalmente coletado e reciclado',
+            restLabel: 'sem reciclagem documentada',
+        },
         support:
             'Apenas 22,3% desse volume foi documentado como formalmente coletado e reciclado de maneira ambientalmente adequada.',
         impactPhrase:
@@ -46,23 +54,25 @@ export const statHighlightContent: Record<string, StatHighlightContent> = {
 
 export const infoCardsContent: Record<string, InfoCardsContent> = {
     problema: {
+        layout: 'journey',
         headline: 'Descartar um eletrônico não deveria ser complicado.',
-        intro:
-            'Quando um equipamento deixa de ser utilizado, o consumidor precisa encontrar uma forma adequada de encaminhá-lo.',
         cards: [
             {
                 icon: '📍',
+                iconKey: 'map-pin',
                 title: 'Onde descartar?',
                 description: 'Nem sempre é claro qual é o ponto adequado para cada tipo de resíduo.',
             },
             {
                 icon: '🚚',
+                iconKey: 'truck',
                 title: 'Como transportar?',
                 description:
                     'Equipamentos maiores ou em grande quantidade podem dificultar o deslocamento até um ponto de entrega.',
             },
             {
                 icon: '🔄',
+                iconKey: 'recycle',
                 title: 'O que acontece depois?',
                 description:
                     'O descarte adequado depende de que o resíduo entre em uma cadeia de recebimento e destinação ambientalmente correta.',
@@ -74,21 +84,25 @@ export const infoCardsContent: Record<string, InfoCardsContent> = {
             'Existe infraestrutura para o descarte. O desafio é aproximá-la de quem precisa utilizá-la.',
     },
     publico: {
+        layout: 'cards',
         headline: 'Começamos por quem vive e trabalha em Diadema.',
         cards: [
             {
                 icon: '🏠',
+                iconKey: 'house',
                 title: 'Moradores',
                 description:
                     'Pessoas com eletrônicos sem uso em casa e que precisam de uma alternativa prática para encaminhá-los corretamente.',
             },
             {
                 icon: '🏢',
+                iconKey: 'store',
                 title: 'Pequenos negócios',
                 description: 'Estabelecimentos que acumulam equipamentos, periféricos e componentes fora de uso.',
             },
             {
                 icon: '🏙️',
+                iconKey: 'building',
                 title: 'Condomínios',
                 description:
                     'Comunidades residenciais que podem concentrar volumes maiores de resíduos eletroeletrônicos.',
@@ -97,30 +111,35 @@ export const infoCardsContent: Record<string, InfoCardsContent> = {
         closingPhrase: 'Um problema doméstico. Uma oportunidade urbana.',
     },
     diferenciais: {
+        layout: 'cards',
         headline: 'Menos atrito. Mais descarte correto.',
         cards: [
             {
+                iconKey: 'door-open',
                 title: 'Conveniência',
                 description: 'O usuário solicita a coleta sem precisar transportar o material até o ponto de descarte.',
             },
-            { title: 'Simplicidade', description: 'A experiência concentra o processo em poucos passos.' },
+            { iconKey: 'pointer', title: 'Simplicidade', description: 'A experiência concentra o processo em poucos passos.' },
             {
+                iconKey: 'network',
                 title: 'Intermediação',
                 description: 'O EcoByte conecta o solicitante ao fluxo de encaminhamento definido pelo projeto.',
             },
             {
+                iconKey: 'map-pin',
                 title: 'Foco local',
                 description: 'A solução nasce pensando especificamente na realidade de Diadema-SP.',
             },
         ],
     },
     funcionalidades: {
+        layout: 'journey',
         headline: 'Do pedido à coleta, em uma única jornada.',
         cards: [
-            { icon: '📝', title: 'Solicitação de coleta', description: 'Registro do pedido de recolhimento.' },
-            { icon: '📍', title: 'Endereço', description: 'Definição do local onde o material deverá ser coletado.' },
-            { icon: '🔄', title: 'Acompanhamento', description: 'Visualização do status da solicitação.' },
-            { icon: '✅', title: 'Confirmação', description: 'Registro da conclusão do processo.' },
+            { icon: '📝', iconKey: 'clipboard', title: 'Solicitação de coleta', description: 'Registro do pedido de recolhimento.' },
+            { icon: '📍', iconKey: 'map-pin', title: 'Endereço', description: 'Definição do local onde o material deverá ser coletado.' },
+            { icon: '🔄', iconKey: 'refresh', title: 'Acompanhamento', description: 'Visualização do status da solicitação.' },
+            { icon: '✅', iconKey: 'check', title: 'Confirmação', description: 'Registro da conclusão do processo.' },
         ],
         flow: ['SOLICITADO', 'AGENDADO', 'EM COLETA', 'COLETADO', 'ENCAMINHADO'],
         // Nota da equipe (não exibida no slide): usar aqui só os estados que
@@ -131,25 +150,30 @@ export const infoCardsContent: Record<string, InfoCardsContent> = {
 
 export const sequentialStepsContent: Record<string, SequentialStepsContent> = {
     solucao: {
+        layout: 'journey',
         headline: 'Uma plataforma que leva o descarte até você.',
         steps: [
             {
                 number: '1',
+                iconKey: 'smartphone',
                 title: 'Solicite',
                 description: 'O usuário informa o que deseja descartar e registra o endereço para coleta.',
             },
             {
                 number: '2',
+                iconKey: 'truck',
                 title: 'A EcoByte recolhe',
                 description: 'Um agente responsável pelo projeto realiza o recolhimento no endereço informado.',
             },
             {
                 number: '3',
+                iconKey: 'warehouse',
                 title: 'Encaminhamos',
                 description: 'O material é levado a um ecoponto adequado em Diadema.',
             },
             {
                 number: '4',
+                iconKey: 'recycle',
                 title: 'Descarte correto',
                 description: 'O resíduo entra no fluxo apropriado de recebimento e destinação.',
             },
@@ -190,17 +214,27 @@ export const stakeholderMapContent: Record<string, StakeholderMapContent> = {
         headline: 'Quem participa da solução?',
         center: 'EcoByte',
         nodes: [
-            { label: 'Moradores', tag: 'Solicitante', description: 'Solicitam a coleta.' },
-            { label: 'Ecopontos', tag: 'Infraestrutura existente', description: 'Recebem o material encaminhado.' },
+            { label: 'Moradores', tag: 'Solicitante', description: 'Solicitam a coleta.', iconKey: 'house', status: 'active' },
+            {
+                label: 'Ecopontos',
+                tag: 'Infraestrutura existente',
+                description: 'Recebem o material encaminhado.',
+                iconKey: 'warehouse',
+                status: 'active',
+            },
             {
                 label: 'Cooperativas de reciclagem',
                 tag: 'Potencial parceiro',
+                iconKey: 'recycle',
+                status: 'potential',
                 description:
                     'Podem participar das etapas posteriores de destinação, conforme as parcerias e fluxos efetivamente estabelecidos.',
             },
             {
                 label: 'Poder público',
                 tag: 'Potencial parceiro',
+                iconKey: 'landmark',
+                status: 'potential',
                 description: 'Pode atuar como parceiro institucional e na infraestrutura municipal.',
             },
         ],
@@ -217,18 +251,21 @@ export const odsGridContent: Record<string, OdsGridContent> = {
         items: [
             {
                 number: '11',
+                color: '#FD9D24', // cor oficial ONU
                 short: 'Cidades Sustentáveis',
                 description:
                     'O projeto contribui para uma gestão urbana mais organizada e sustentável dos resíduos, especialmente ao facilitar o acesso a uma solução de descarte.',
             },
             {
                 number: '12',
+                color: '#BF8B2E',
                 short: 'Consumo Responsável',
                 description:
                     'É o ODS mais diretamente conectado ao EcoByte: assegurar padrões sustentáveis de consumo e produção, incluindo o manejo ambientalmente adequado de resíduos.',
             },
             {
                 number: '13',
+                color: '#3F7E44',
                 short: 'Ação Climática',
                 description:
                     'Contribuição indireta, relacionada à promoção de práticas de gestão de resíduos e uso mais eficiente de recursos.',
