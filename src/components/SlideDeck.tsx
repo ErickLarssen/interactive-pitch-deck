@@ -12,6 +12,8 @@ import { StakeholderMapSlide } from '../slides/StakeholderMapSlide';
 import { OdsGridSlide } from '../slides/OdsGridSlide';
 import { ClosingSlide } from '../slides/ClosingSlide';
 import { DocumentGallerySlide } from '../slides/DocumentGallerySlide';
+import { ArchitectureSlide } from '../slides/ArchitectureSlide';
+import { TechStackSlide } from '../slides/TechStackSlide';
 
 function renderSlide(type: string) {
     switch (type) {
@@ -33,6 +35,10 @@ function renderSlide(type: string) {
             return <ClosingSlide />;
         case 'document-gallery':
             return <DocumentGallerySlide />;
+        case 'architecture':
+            return <ArchitectureSlide />;
+        case 'tech-stack':
+            return <TechStackSlide />;
         case 'content':
             return <ContentSlide />;
         default:

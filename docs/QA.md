@@ -22,8 +22,13 @@
 - [ ] Trocar de apresentador pelo dock finaliza o anterior automaticamente
       (conferir tempo realizado registrado)
       - [ ] Slide de Documentação: os 4 botões abrem o modal correto
-- [ ] Dentro do modal: scroll do mouse e botões +/- aplicam zoom; arrastar
-      com o mouse navega a imagem ampliada; botão de reset volta a 100%
+- [ ] Dentro do modal: roda do mouse aproxima NO PONTO do cursor; botões
+      +/−, atalhos 100–400% e teclas + − 0 aplicam zoom (até 500%);
+      arrastar e setas navegam a imagem ampliada; reset volta a 100%
+- [ ] Documento em 100%: nada (barra de zoom, dica) fica sobre o diagrama
+- [ ] Minimapa aparece com zoom, mostra a região visível; clique nele centraliza
+- [ ] Tela cheia (botão na barra) ocupa a janela toda; ESC/X continuam fechando
+- [ ] Setas ‹ › no topo do modal trocam de documento sem fechar
 - [ ] ESC fecha o modal do documento sem navegar de slide (mesmo
       comportamento já validado nos outros modais)
 - [ ] Logo da capa: aumentar --cover-logo-size não move o subtítulo/meta
@@ -57,3 +62,10 @@
 - [ ] Slide Evidências: contagem termina exatamente em 62 Mt / 22,3% / 82 Mt
 - [ ] Slide Stakeholders: "Potencial parceiro" com selo tracejado
 - [ ] Slide 17 (Próximos passos) continua no visual anterior
+- [ ] Slide Arquitetura: simulação roda sozinha ao entrar, pacote vai e
+      volta, terminal preenche ida | volta; botão repete; cabe em 1366×768
+- [ ] Slide Stack: logos acendem no hover, TypeScript/Zod/Vitest acendem
+      nos dois lados, inspector atualiza; cabe em 1366×768
+- [ ] Logos escuros (Next.js, Express, shadcn/ui) legíveis no fundo escuro
+- [ ] Slide Documentação: prévias reais dos 4 documentos; hover amplia a
+      prévia no ponto do mouse; resolução exibida bate com o arquivo

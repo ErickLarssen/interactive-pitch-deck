@@ -8,7 +8,73 @@ export type SlideType =
     | 'stakeholder-map'
     | 'ods-grid'
     | 'closing'
-    | 'document-gallery';
+    | 'document-gallery'
+    | 'architecture'
+    | 'tech-stack';
+
+// Ícones de tecnologia: logos de marca (simple-icons) ou, sem logo
+// oficial, ícone de linha lucide. Registro em components/BrandIcon.tsx.
+export type TechIconKey =
+    | 'nextjs'
+    | 'react'
+    | 'typescript'
+    | 'tailwind'
+    | 'shadcn'
+    | 'tanstack'
+    | 'rhf'
+    | 'zod'
+    | 'vitest'
+    | 'node'
+    | 'express'
+    | 'mongodb'
+    | 'mongoose'
+    | 'eslint'
+    | 'npm'
+    | 'session'
+    | 'security'
+    | 'concurrently'
+    | 'seed';
+
+export interface TechItem {
+    // Mesmo id em grupos diferentes = mesma tecnologia (acendem juntas).
+    id: string;
+    name: string;
+    icon: TechIconKey;
+    version?: string;
+    role: string;
+}
+export interface TechGroup {
+    label: string;
+    path: string;
+    items: TechItem[];
+}
+export interface TechStackContent {
+    headline: string;
+    groups: TechGroup[];
+    tooling: TechItem[];
+}
+
+export interface ArchitectureNode {
+    id: string;
+    layer: string;
+    workspace?: string;
+    name: string;
+    version?: string;
+    icon: TechIconKey;
+    badge?: string;
+    note?: string;
+    techs: { name: string; icon: TechIconKey }[];
+}
+export interface ArchitectureContent {
+    headline: string;
+    chips: string[];
+    nodes: ArchitectureNode[];
+    // Rótulo de cada conexão entre nós (length = nodes.length - 1).
+    links: string[];
+    // Uma linha por camada visitada pela requisição simulada: ida
+    // (nó 0 → último) e volta (→ nó 0). length = 2 * nodes.length - 1.
+    trace: string[];
+}
 
 export interface SlideBackground {
     kind: 'solid' | 'gradient' | 'video' | 'image' | 'beams';

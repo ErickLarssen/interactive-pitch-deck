@@ -54,3 +54,23 @@ InfoCardsContent.layout: 'journey' | 'cards'; SequentialStepsContent.layout:
 'journey'. StakeholderNode ganhou iconKey e status ('active' | 'potential');
 OdsItem ganhou color (cor oficial). Todos opcionais: conteúdo sem esses
 campos renderiza o visual anterior.
+
+## Tipos de slide: architecture e tech-stack
+- architecture (slide 12, ArchitectureSlide.tsx): diagrama de camadas
+  com chaves de workspace, conexões com tráfego ambiente e simulação de
+  requisição (ida e volta) com terminal de trace. Conteúdo em
+  architectureContent; trace tem 2 × nós − 1 linhas (uma por camada
+  visitada).
+- tech-stack (slide 13, TechStackSlide.tsx): grades de logos por
+  workspace + inspector. TechItem com o mesmo id em grupos diferentes
+  = mesma tecnologia (acendem juntas).
+Os dois substituem o antigo tipo 'content' desses slides.
+
+## document-gallery (slide 14) — redesign
+Cards premium com a prévia real de cada documento (papel branco) e
+metadados lidos do próprio arquivo (formato + resolução, via
+naturalWidth/Height — nada digitado à mão). Clique abre o Modal com o
+DocumentViewer. No modal: índice 02 / 04, título, metadados e setas
+‹ › para trocar de documento sem fechar. Modal ganhou o tamanho
+'full' (tela cheia) e passou a renderizar via portal no <body> (ver
+ARCHITECTURE.md).

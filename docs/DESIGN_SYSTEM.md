@@ -154,3 +154,14 @@ Aplicação por slide:
 Slides fora dessa faixa (12–18) seguem no visual anterior; o slide
 17 (Próximos passos) compartilha o componente de etapas com o 09, mas
 só recebe o layout novo se o conteúdo tiver layout: 'journey'.
+
+## Slides técnicos (12 Arquitetura, 13 Stack)
+Mesma superfície premium, com linguagem de ferramenta de dev: grade
+de fundo sutil (máscara radial), rótulos em --font-mono (fontes do
+sistema: Cascadia/Consolas, nada a baixar) para paths, versões e
+terminal. Logos via BrandIcon: em repouso monocromáticos (--fg-muted)
+no Stack, coloridos no hover/seleção; na Arquitetura sempre na cor da
+marca. Cores de marca muito escuras (Next.js, Express, shadcn/ui,
+Mongoose) são clareadas automaticamente até contraste ≥ 3:1 contra
+--bg-elevated, preservando o matiz (brandColor em BrandIcon.tsx).
+Pacote de requisição = azul da marca; de resposta = verde.

@@ -62,10 +62,26 @@ ENCAMINHADO.
 Nota da equipe: usar só os estados que o software realmente implementa.
 
 ## 12 — Arquitetura
-[DEFINIR ARQUITETURA REAL] — não preencher agora.
+Headline: "Regras de negócio em um único lugar: a API."
+Fluxo: Frontend (Next.js 16.3 + React 19.2) → HTTP → API Express 5
+(regras de negócio, Zod, sessões, Argon2id) → Mongoose 9 → MongoDB
+(dados + sessões via connect-mongo). Monorepo com npm workspaces
+(frontend/ e backend/), TypeScript de ponta a ponta, Node.js 22+.
+Fonte: levantamento dos package.json do repositório EcoByte +
+docs/DECISIONS.md de lá. NÃO citar frontend/src/lib/api-proxy.ts: o
+papel dele (repasse para a API) não foi confirmado.
 
 ## 13 — Stack
-[DEFINIR STACK REAL DO PROJETO] — não preencher agora.
+Headline: "TypeScript do navegador ao banco."
+frontend/: Next.js 16.3, React 19.2, TypeScript 5, Tailwind CSS 4,
+shadcn/ui (Radix + cva, ícones Lucide), TanStack Query, React Hook
+Form, Zod 4, Vitest (+ Testing Library, jsdom).
+backend/: Node.js ≥ 22, Express 5 (ESM), TypeScript 6 (tsx/tsc),
+MongoDB, Mongoose 9, Zod 4, sessões (express-session + connect-mongo),
+segurança (Argon2id + express-rate-limit), Vitest (+ Supertest,
+mongodb-memory-server).
+Raiz: npm workspaces, ESLint, concurrently (npm run dev), seed.
+Fonte: a mesma do slide 12. Dados em techStackContent (slideContent.ts).
 
 ## 14 — Documentação
 4 botões, cada um abrindo um modal com zoom: Diagrama de Navegação,

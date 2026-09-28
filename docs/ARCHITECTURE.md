@@ -115,3 +115,27 @@ atual é do tipo cover (crossfade de 600ms via CSS). Assim o vídeo
 continua sendo um único elemento persistente (decisão acima) e a capa
 ganha a atmosfera própria sem remontar nada. O halo InfinityGlow foi
 removido a pedido (competia com a leitura do texto).
+
+## Decisão: simple-icons para logos de tecnologia
+Decisão anterior: ícones só com lucide-react, evitando dependências.
+Problema: os slides 12 e 13 precisam dos logos oficiais das
+tecnologias (Next.js, React, MongoDB…) e o lucide não tem ícones de
+marca; baixar SVGs soltos, um por um, seria frágil de manter.
+Nova proposta: pacote simple-icons (CC0, SVGs locais — funciona
+offline, sem URL externa). Só os logos importados entram no bundle
+(tree-shaking; ~+50 KB no total com os slides novos). Registro único
+em src/components/BrandIcon.tsx; itens sem logo oficial (sessões,
+segurança, concurrently, seed) usam lucide.
+Impacto: uma dependência a mais; nenhum asset remoto.
+
+## Decisão: Modal renderizado via portal no <body>
+Decisão anterior: o Modal era renderizado dentro do próprio slide.
+Problema: o container do slide recebe transform do GSAP na transição;
+um ancestral com transform vira o "containing block" de position:
+fixed, então o overlay do modal passa a se posicionar pelo slide, não
+pela tela (risco de modal cortado/deslocado, principalmente em tela
+cheia).
+Nova proposta: createPortal(…, document.body) em Modal.tsx. Estado
+(openModalId), ESC e clique fora seguem iguais; eventos React
+continuam propagando pela árvore de componentes normalmente.
+Impacto: vale para todos os modais (documentos e integrantes).

@@ -6,6 +6,8 @@ import {
     OdsGridContent,
     ClosingContent,
     DocumentGalleryContent,
+    ArchitectureContent,
+    TechStackContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -291,6 +293,128 @@ export const documentGalleryContent: Record<string, DocumentGalleryContent> = {
             { id: 'doc-casos-uso', label: 'Casos de Uso', src: '/assets/documents/casos-de-uso.png' },
             { id: 'doc-idef0', label: 'IDEF-0', src: '/assets/documents/idef-0.png' },
             { id: 'doc-bpmn', label: 'BPMN', src: '/assets/documents/bpmn.png' },
+        ],
+    },
+};
+
+// Slides 12 e 13 — fonte: levantamento dos package.json do repositório
+// EcoByte + docs/DECISIONS.md de lá (monorepo com npm workspaces).
+// Não citar api-proxy.ts: o papel dele não foi confirmado.
+export const architectureContent: Record<string, ArchitectureContent> = {
+    arquitetura: {
+        headline: 'Regras de negócio em um único lugar: a API.',
+        chips: ['Monorepo · npm workspaces', 'TypeScript de ponta a ponta', 'Node.js 22+'],
+        nodes: [
+            {
+                id: 'frontend',
+                layer: 'Frontend',
+                workspace: 'frontend/',
+                name: 'Next.js',
+                version: '16.3 · React 19.2',
+                icon: 'nextjs',
+                techs: [
+                    { name: 'Tailwind CSS', icon: 'tailwind' },
+                    { name: 'shadcn/ui', icon: 'shadcn' },
+                    { name: 'TanStack Query', icon: 'tanstack' },
+                ],
+            },
+            {
+                id: 'api',
+                layer: 'API',
+                workspace: 'backend/',
+                name: 'Express',
+                version: '5 · ESM',
+                icon: 'express',
+                badge: 'Regras de negócio',
+                techs: [
+                    { name: 'Zod', icon: 'zod' },
+                    { name: 'Sessões', icon: 'session' },
+                    { name: 'Argon2id', icon: 'security' },
+                ],
+            },
+            {
+                id: 'odm',
+                layer: 'Acesso a dados',
+                workspace: 'backend/',
+                name: 'Mongoose',
+                version: '9',
+                icon: 'mongoose',
+                note: 'Modelagem e consultas ao MongoDB',
+                techs: [],
+            },
+            {
+                id: 'db',
+                layer: 'Banco',
+                name: 'MongoDB',
+                icon: 'mongodb',
+                note: 'Dados da aplicação e sessões (connect-mongo)',
+                techs: [],
+            },
+        ],
+        links: ['HTTP', '', ''],
+        trace: [
+            'Frontend (Next.js) envia a requisição HTTP',
+            'API Express aplica as regras de negócio e valida com Zod',
+            'Mongoose consulta o MongoDB',
+            'MongoDB devolve os dados',
+            'Mongoose entrega o resultado à API',
+            'API responde via HTTP',
+            'Frontend recebe — TanStack Query atualiza o cache',
+        ],
+    },
+};
+
+export const techStackContent: Record<string, TechStackContent> = {
+    stack: {
+        headline: 'TypeScript do navegador ao banco.',
+        groups: [
+            {
+                label: 'Frontend',
+                path: 'frontend/',
+                items: [
+                    { id: 'nextjs', name: 'Next.js', icon: 'nextjs', version: '16.3', role: 'Framework web com App Router' },
+                    { id: 'react', name: 'React', icon: 'react', version: '19.2', role: 'Biblioteca de interface' },
+                    { id: 'typescript', name: 'TypeScript', icon: 'typescript', version: '5', role: 'Tipagem estática no frontend' },
+                    {
+                        id: 'tailwind',
+                        name: 'Tailwind CSS',
+                        icon: 'tailwind',
+                        version: '4',
+                        role: 'Estilo utilitário via @tailwindcss/postcss, com tw-animate-css',
+                    },
+                    {
+                        id: 'shadcn',
+                        name: 'shadcn/ui',
+                        icon: 'shadcn',
+                        role: 'Componentes sobre Radix UI + class-variance-authority; ícones Lucide',
+                    },
+                    { id: 'tanstack', name: 'TanStack Query', icon: 'tanstack', role: 'Dados da API: cache, carregamento e invalidação' },
+                    { id: 'rhf', name: 'React Hook Form', icon: 'rhf', role: 'Formulários, validados com Zod via @hookform/resolvers' },
+                    { id: 'zod', name: 'Zod', icon: 'zod', version: '4', role: 'Validação de esquemas — nos formulários' },
+                    { id: 'vitest', name: 'Vitest', icon: 'vitest', role: 'Testes com Testing Library + jsdom' },
+                ],
+            },
+            {
+                label: 'Backend',
+                path: 'backend/',
+                items: [
+                    { id: 'node', name: 'Node.js', icon: 'node', version: '≥ 22', role: 'Runtime (fixado em .nvmrc e engines)' },
+                    { id: 'express', name: 'Express', icon: 'express', version: '5', role: 'API HTTP em ESM — onde ficam as regras de negócio' },
+                    { id: 'typescript', name: 'TypeScript', icon: 'typescript', version: '6', role: 'tsx no desenvolvimento, tsc no build' },
+                    { id: 'mongodb', name: 'MongoDB', icon: 'mongodb', role: 'Banco de dados — guarda também as sessões' },
+                    { id: 'mongoose', name: 'Mongoose', icon: 'mongoose', version: '9', role: 'Modelagem e acesso ao MongoDB' },
+                    { id: 'zod', name: 'Zod', icon: 'zod', version: '4', role: 'Validação de esquemas — na API' },
+                    { id: 'session', name: 'Sessões', icon: 'session', role: 'express-session + connect-mongo (sessões no MongoDB)' },
+                    { id: 'security', name: 'Segurança', icon: 'security', role: 'Senhas com Argon2id + express-rate-limit' },
+                    { id: 'vitest', name: 'Vitest', icon: 'vitest', role: 'Testes com Supertest + mongodb-memory-server' },
+                ],
+            },
+        ],
+        tooling: [
+            { id: 'npm', name: 'npm workspaces', icon: 'npm', role: 'Monorepo com os workspaces backend e frontend' },
+            { id: 'eslint', name: 'ESLint', icon: 'eslint', role: 'Lint nos dois workspaces (typescript-eslint e eslint-config-next)' },
+            { id: 'concurrently', name: 'concurrently', icon: 'concurrently', role: 'npm run dev na raiz sobe backend e frontend juntos' },
+            { id: 'seed', name: 'Seed', icon: 'seed', role: 'Script npm run seed no backend' },
         ],
     },
 };

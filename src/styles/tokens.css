@@ -37,6 +37,9 @@
        quadrado da Eurostile, mas largura normal e pesos reais (100–900),
        bem mais legível no telão. Self-hosted via @fontsource-variable/saira. */
     --font-family-base: 'Saira Variable', 'Saira', system-ui, sans-serif;
+    /* Mono (rótulos técnicos: paths, versões, terminal) — só fontes do
+       sistema, nada a baixar. Cascadia/Consolas no Windows. */
+    --font-mono: ui-monospace, 'Cascadia Code', 'Cascadia Mono', Consolas, 'SF Mono', Menlo, monospace;
     --font-display: clamp(3.5rem, 6vw, 7rem);
     --font-heading: clamp(2.5rem, 4vw, 5rem);
     --font-subheading: clamp(1.5rem, 2vw, 2.5rem);

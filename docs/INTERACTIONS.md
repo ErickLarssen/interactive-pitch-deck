@@ -37,3 +37,27 @@ Todo .premium-card: brilho radial seguindo o mouse, elevação leve,
 borda azul, ícone azul → verde. Stakeholders: hover no nó acende a
 haste que o liga ao centro. ODS: hover/foco abre a descrição, clique
 fixa (ícone + gira para ×). FlowStrip: hover destaca a etapa.
+
+## Arquitetura (slide 12)
+Botão "Simular requisição" (Enter/clique) repete a simulação; status
+no terminal (aguardando / executando… / concluído) com aria-live.
+
+## Stack (slide 13)
+Hover ou foco (Tab) num tile mostra a tecnologia no inspector; clique
+fixa a seleção. A mesma tecnologia no outro workspace acende junto
+(ex.: TypeScript, Zod, Vitest). Obs.: Espaço continua avançando slide
+(atalho global) — para ativar botões use Enter ou clique.
+
+## Visualizador de documentos (slide 14)
+Pensado para o fundo do auditório: aproximar exatamente no ponto que
+o apresentador aponta.
+- Roda do mouse: zoom no ponto do cursor (1–500%).
+- Duplo clique: aproxima 250% no ponto; de novo, volta a 100%.
+- Arrastar (com zoom) move; o documento nunca sai da área visível.
+- Barra: − / + (passos de 50%), atalhos 100–400%, reset, tela cheia.
+- Teclado (modal aberto bloqueia a navegação de slides): + − 0 e setas.
+- Minimapa (só com zoom): região visível; clique centraliza ali.
+- ‹ › no topo: documento anterior/próximo sem fechar o modal.
+- Fechar: X, ESC ou clique fora (na tela cheia não há "fora": X/ESC).
+Barra de zoom e dica ficam ABAIXO do documento, nunca sobre ele.
+Na galeria, o hover amplia a prévia a partir do ponto do mouse.

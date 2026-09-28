@@ -47,3 +47,23 @@ Reduced motion: estado final direto.
   Anel pulsante do centro em loop lento (2,8s), desligado com reduced motion.
 - FlowStrip: só CSS; estado base = aceso, animação define apenas o 'from'
   com delay por índice — reduced motion mostra tudo aceso direto.
+
+## Arquitetura (slide 12)
+Conexões se desenham ao entrar (scaleX). Tráfego ambiente: um ponto
+por conexão em loop lento (2,6s), pausado durante a simulação.
+Simulação (timeline GSAP): cada camada acende (0,55s para ler a linha
+do trace) e o pacote viaja 0,5s até a próxima — ida azul, volta verde.
+Roda sozinha 1x, 1,4s após entrar no slide; o botão repete. Reduced
+motion: sem loop nem pacote; o botão mostra o trace completo direto.
+
+## Stack (slide 13)
+Tiles com inclinação 3D seguindo o mouse (máx. 10°, sem transição
+longa) e escala 1.06 no hover. Inspector troca com fade 0,35s + linha
+de varredura. Reduced motion: sem inclinação nem varredura.
+
+## Documentação (slide 14)
+Cards entram com useStaggerReveal. Prévia: scale 2.2 com
+transform-origin no ponto do mouse (0,35s). Modal: entrada 0,28s
+(fade + 12px + escala 0,985). Zoom por botão/tecla anima 0,22s; roda
+do mouse e arraste aplicam direto (sem transição), para acompanhar a
+mão sem atraso.
