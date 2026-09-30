@@ -69,3 +69,9 @@ Clique no meme (no ponto clicado) ou no botão "Clique para aplaudir"
 ## Encerramento (slide 19)
 Mouse inclina o palco do logo (paralaxe: anéis e logo em camadas).
 Clique/Enter no logo → onda de choque.
+
+## Dock de apresentadores
+Hover no chip abre o painel; clique no chip fixa/solta (acessível por
+teclado). Fixado: fecha com clique fora ou ESC (ESC sem modal aberto
+não navega slide). Ponte invisível entre chip e painel evita que o
+hover "caia" no vão. Lista rola dentro do painel se faltar altura.

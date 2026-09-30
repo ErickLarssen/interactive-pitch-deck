@@ -21,3 +21,15 @@ export function getTimerStatusLabel(status: TimerStatus): string {
             return 'no tempo';
     }
 }
+// Instrução curta para o apresentador (o que fazer agora), usada no
+// painel do dock ao lado do semáforo — acompanha cor + ícone + rótulo.
+export function getTimerStatusHint(status: TimerStatus): string {
+    switch (status) {
+        case 'warning':
+            return 'Comece a concluir';
+        case 'danger':
+            return 'Encerre sua fala';
+        default:
+            return 'Siga no seu ritmo';
+    }
+}

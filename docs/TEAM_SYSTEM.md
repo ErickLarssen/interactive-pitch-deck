@@ -46,3 +46,8 @@ Sem abas de filtro por categoria (diferente da referência): os 6 papéis
 da equipe são únicos, então um filtro não teria função real — decisão
 deliberada para não criar um elemento decorativo que parece clicável
 sem fazer nada.
+## Dock de apresentadores (substitui o "avatar flutuante")
+Hover ou clique no chip → painel com Pausar/Retomar, Finalizar e
+Reiniciar (confirmação no próprio painel). Clique em qualquer
+integrante da lista inicia/troca o apresentador (o anterior é
+finalizado automaticamente). Detalhes visuais em TIMER_SYSTEM.md.

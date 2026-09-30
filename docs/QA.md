@@ -75,3 +75,9 @@
       loop no centro dos anéis (sem tela vazia — pré-carregado no Meme),
       clique no logo gera onda de choque; "Obrigado." não encosta no rodapé
       em 1366×768
+- [ ] Dock: chip verde discreto; âmbar mais visível; vermelho aceso e
+      pulsando; brilho único a cada troca de cor
+- [ ] Dock: semáforo, instrução e "restam / acima" batem com o tempo
+- [ ] Dock: Reiniciar pede confirmação no painel; Cancelar não zera
+- [ ] Dock: abre por clique/Enter; fecha com clique fora e ESC; painel
+      não sai da tela em 1366×768 (lista rola)
