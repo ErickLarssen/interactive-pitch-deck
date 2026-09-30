@@ -81,6 +81,17 @@ ARCHITECTURE.md).
   girando, inclinação 3D e chuva de aplausos no clique. Pré-carrega o
   APNG do slide seguinte (animatedLogo do closingContent).
 - closing (ClosingSlide.tsx): frase palavra a palavra, palco com o APNG
-  (ClosingContent.animatedLogo) cercado de anéis HUD, paralaxe no mouse,
+  (ClosingContent.animatedLogo) cercado de anéis HUD, inclinação 3D no mouse,
   onda de choque no clique no logo, tagline e "Obrigado." em gradiente.
   O mesh escuro da capa (PresentationShell) também fica ativo aqui.
+
+## Tipo goals (slide 16 — Resultados esperados)
+GoalsSlide.tsx + goalsContent: jornada operacional (3 cards ligados por
+linha — ordem, não proporção) e destaques (resíduos com balança; taxa
+com medidor circular via GoalItem.gauge). value é exibido exatamente
+como a equipe informou; CountUpValue anima só o número.
+
+## Layout 'roadmap' (slide 17)
+SequentialStepsContent.layout = 'roadmap' → RoadmapSteps.tsx (detalhes
+visuais em DESIGN_SYSTEM.md). Etapas com iconKey; closingPhrase em
+premium-callout.

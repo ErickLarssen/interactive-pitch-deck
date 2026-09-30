@@ -67,7 +67,8 @@ Clique no meme (no ponto clicado) ou no botão "Clique para aplaudir"
 (Enter) → chuva de 👏. Mouse inclina a janela em 3D.
 
 ## Encerramento (slide 19)
-Mouse inclina o palco do logo (paralaxe: anéis e logo em camadas).
+Mouse inclina o palco inteiro (logo e anéis juntos, sempre concêntricos —
+sem deslocamento próprio de cada camada).
 Clique/Enter no logo → onda de choque.
 
 ## Dock de apresentadores

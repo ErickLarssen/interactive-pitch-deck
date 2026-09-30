@@ -3859,15 +3859,15 @@ textarea {
     animation: closing-breathe 5s ease-in-out infinite;
 }
 
-/* Anéis em camada própria: deslocam um pouco no sentido oposto ao
-   mouse (paralaxe) e giram devagar, em sentidos opostos. */
+/* Anéis giram devagar, em sentidos opostos. Sem deslocamento próprio:
+   a inclinação do palco move anéis e logo juntos — sempre concêntricos
+   (antes cada um se deslocava para um lado e o logo saía do centro). */
 .closing__rings {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     overflow: visible;
-    transform: translate(calc(var(--px) * -12px), calc(var(--py) * -12px));
 }
 
 .closing__ring {
@@ -3920,8 +3920,6 @@ textarea {
     border-radius: 24px;
     background: none;
     cursor: pointer;
-    transform: translate(calc(var(--px) * 10px), calc(var(--py) * 10px));
-    transition: transform 0.3s ease-out;
 }
 
 .closing__logo-btn:focus-visible {
@@ -3929,11 +3927,17 @@ textarea {
     outline-offset: 6px;
 }
 
-/* APNG 480×336: largura ≤ tamanho nativo na maioria das telas (nítido) */
+/* APNG 480×336: largura ≤ tamanho nativo na maioria das telas (nítido).
+   Centralização óptica: com o logo completo, o centro de massa do
+   desenho fica em (215, 139) no canvas, e não em (240, 168) — o laço
+   azul do ∞ é pesado e o texto/folha são finos, então o logo parecia
+   alto e à esquerda no anel. O translate compensa ~75% dessa diferença
+   (100% jogaria o texto baixo demais). Medido quadro a quadro. */
 .closing__logo {
     display: block;
     width: calc(var(--stage) * 0.9);
     height: auto;
+    transform: translate(4%, 6.25%);
     user-select: none;
     filter: drop-shadow(0 0 28px rgba(var(--brand-blue-rgb), 0.35));
     transition: filter 0.3s ease;
@@ -3995,8 +3999,7 @@ textarea {
     }
 
     .meme__tilt,
-    .closing__stage-inner,
-    .closing__logo-btn {
+    .closing__stage-inner {
         transition: none;
     }
 }
@@ -4016,3 +4019,418 @@ textarea {
     }
 }
 
+
+/* ==========================================================
+   Resultados esperados (slide 16) — painel de metas. Selo "Meta
+   inicial" tracejado (mesma linguagem do "potencial parceiro": ainda
+   não é realidade medida). Nenhuma proporção entre indicadores.
+   ========================================================== */
+.goals {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.goals__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.goals__eyebrow {
+    margin: 0 0 var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-blue-light);
+}
+
+.goals__headline {
+    margin: 0;
+    font-size: var(--font-heading);
+    line-height: 1.1;
+}
+
+.goals__legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+    white-space: nowrap;
+}
+
+.goals__badge {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    border-radius: 999px;
+    border: 1px dashed rgba(167, 172, 179, 0.6); /* --fg-muted */
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+}
+
+/* Jornada operacional: linha na altura dos ícones (só ordem das etapas) */
+.goals__journey {
+    position: relative;
+}
+
+.goals__rail {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--space-4) + 26px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brand-blue-light) 15%, var(--brand-green-light) 85%, transparent);
+    opacity: 0.7;
+    transform-origin: left center;
+}
+
+.goals__journey-list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+    gap: clamp(var(--space-2), 1.8vw, var(--space-4));
+}
+
+.goal-card {
+    padding: var(--space-4);
+}
+
+.goal-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.goal-card__value {
+    margin: var(--space-2) 0 4px;
+    font-size: clamp(2.75rem, 4.4vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(120deg, var(--brand-green-light), var(--brand-blue-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.goal-card__label {
+    margin: 0;
+    font-size: var(--font-body);
+    line-height: 1.35;
+    color: var(--fg-muted);
+}
+
+/* Destaques: resíduos (balança) e taxa de conclusão (medidor) */
+.goals__highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(var(--space-2), 1.8vw, var(--space-4));
+}
+
+.goal-card--wide {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.goal-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.goal-card__body .goal-card__value {
+    margin-top: var(--space-1);
+}
+
+.goal-card__icon-lg {
+    width: 112px;
+    height: 112px;
+    border-radius: 28px;
+}
+
+.goal-card__icon-lg svg {
+    width: 52px;
+    height: 52px;
+    transform-origin: 50% 25%;
+    animation: goal-balance 1.8s ease-in-out 0.9s both;
+}
+
+/* Balança "se equilibra" uma vez ao entrar */
+@keyframes goal-balance {
+    0% {
+        transform: rotate(-14deg);
+    }
+
+    35% {
+        transform: rotate(9deg);
+    }
+
+    65% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.goals-gauge {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 132px;
+    height: 132px;
+}
+
+/* Só o SVG do medidor (filho direto) — não o ícone dentro do tile */
+.goals-gauge > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.goals-gauge__track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 10;
+}
+
+.goals-gauge__fill {
+    fill: none;
+    stroke: var(--brand-green-light);
+    stroke-width: 10;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(var(--brand-green-rgb), 0.6));
+}
+
+.goals-gauge__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .goal-card__icon-lg svg {
+        animation: none;
+    }
+}
+
+/* Telas baixas (1366×768): encolhe só espaçamentos e mídia, nunca a fonte */
+@media (max-height: 820px) {
+    .goals {
+        gap: var(--space-3);
+    }
+
+    .goal-card {
+        padding: var(--space-3);
+    }
+
+    .goals__rail {
+        top: calc(var(--space-3) + 26px);
+    }
+
+    .goals-gauge {
+        width: 112px;
+        height: 112px;
+    }
+
+    .goal-card__icon-lg {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .goals__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .goals__highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   Próximos passos (slide 17) — roadmap. Linha do tempo com marcos
+   que crescem de fase em fase (metáfora de escala, não dado) e mudam
+   do azul para o verde; cards premium alinhados a cada marco.
+   ========================================================== */
+.sequential-steps--roadmap .sequential-steps__headline {
+    margin: 0 0 var(--space-6);
+}
+
+.sequential-steps--roadmap .premium-callout {
+    margin-top: var(--space-4);
+}
+
+.roadmap {
+    --gap: clamp(var(--space-2), 1.8vw, var(--space-4));
+    --col: calc((100% - (var(--count) - 1) * var(--gap)) / var(--count));
+}
+
+.roadmap__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+    column-gap: var(--gap);
+    height: 76px;
+    margin-bottom: var(--space-2);
+}
+
+/* Linha do centro do 1º marco ao centro do último */
+.roadmap__line {
+    position: absolute;
+    top: 23px;
+    left: calc(var(--col) / 2);
+    right: calc(var(--col) / 2);
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.roadmap__fill {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-green-light));
+    box-shadow: 0 0 12px rgba(var(--brand-green-rgb), 0.5);
+    transform-origin: left center;
+}
+
+.roadmap__stop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Marco: cresce e esverdeia a cada fase (--i) */
+.roadmap__node {
+    --size: calc(14px + var(--i) * 7px);
+    --node: color-mix(in srgb, var(--brand-green-light) calc(var(--i) * 33%), var(--brand-blue-light));
+    width: var(--size);
+    height: var(--size);
+    margin-top: calc(24px - var(--size) / 2);
+    border-radius: 50%;
+    background: #0f1115;
+    border: 2px solid var(--node);
+    box-shadow:
+        0 0 0 4px color-mix(in srgb, var(--node) 14%, transparent),
+        0 0 16px color-mix(in srgb, var(--node) 55%, transparent);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.roadmap__phase {
+    position: absolute;
+    top: 52px;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+/* Hover no card acende o marco correspondente */
+.roadmap__stop[data-active='true'] .roadmap__node {
+    transform: scale(1.3);
+    background: var(--node);
+    box-shadow:
+        0 0 0 6px color-mix(in srgb, var(--node) 22%, transparent),
+        0 0 26px var(--node);
+}
+
+.roadmap__stop[data-active='true'] .roadmap__phase {
+    color: var(--fg-primary);
+}
+
+.roadmap__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+    gap: var(--gap);
+}
+
+.roadmap-card {
+    padding: var(--space-4);
+}
+
+.roadmap-card__title {
+    margin: var(--space-2) 0 var(--space-1);
+    font-size: var(--font-subheading);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.roadmap-card__description {
+    margin: 0;
+    font-size: var(--font-body);
+    line-height: 1.5;
+    color: var(--fg-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .roadmap__node,
+    .roadmap__phase {
+        transition: none;
+    }
+}
+
+/* Telas baixas (1366×768): encolhe só espaçamentos, nunca a fonte */
+@media (max-height: 820px) {
+    .sequential-steps--roadmap .sequential-steps__headline {
+        margin-bottom: var(--space-4);
+    }
+
+    .sequential-steps--roadmap .premium-callout {
+        margin-top: var(--space-3);
+    }
+
+    .roadmap__track {
+        height: 70px;
+        margin-bottom: var(--space-1);
+    }
+
+    .roadmap-card {
+        padding: var(--space-3);
+    }
+
+    .roadmap-card .premium-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .roadmap__track {
+        display: none;
+    }
+
+    .roadmap__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

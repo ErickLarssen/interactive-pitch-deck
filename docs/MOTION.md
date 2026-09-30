@@ -80,3 +80,15 @@ Palavras sobem de uma máscara (stagger 45ms) → palco do logo (escala
 anéis 90s / 40s (sentido oposto) / órbita 14s, brilho "respirando" 5s.
 APNG: loop próprio de 5s (125 quadros). Reduced motion: estado final
 direto, sem loops CSS (o APNG em si continua animando — é o conteúdo).
+
+## Resultados esperados (slide 16)
+Cards com useStaggerReveal; linha da jornada desenha (scaleX 0,9s);
+números contam (CountUpValue, 1,2s, escalonados); medidor da taxa
+preenche até a meta junto com a contagem; balança "se equilibra" uma
+vez (1,8s). Reduced motion: estado final direto.
+
+## Próximos passos (slide 17)
+Linha do roadmap se preenche (1,6s, power1.inOut); cada marco acende
+quando a linha passa por ele e o card correspondente sobe logo depois
+(timeline única). clearProps nos marcos e cards libera o transform
+para o hover. Reduced motion: estado final direto.

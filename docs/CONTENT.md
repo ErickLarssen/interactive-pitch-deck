@@ -91,11 +91,23 @@ src/data/slideContent.ts (documentGalleryContent).
 ## 15 — Demonstração
 [DEFINIR FORMATO DA DEMO] — não preencher agora.
 
-## 16 — Resultados
-[DEFINIR RESULTADOS] — não preencher agora.
+## 16 — Resultados esperados
+Metas iniciais informadas pela equipe (NÃO são resultados medidos — o
+sistema está em desenvolvimento; o slide diz isso e marca cada número
+com o selo tracejado "Meta inicial"):
+Usuários cadastrados 500+ · Coletas solicitadas 300+ · Coletas
+concluídas 200+ · Resíduos eletrônicos recolhidos 2+ toneladas · Taxa
+de conclusão 80%+.
+Nota da equipe: 200 concluídas / 300 solicitadas ≈ 67%, abaixo da meta
+de taxa de conclusão (80%+). A banca pode fazer essa conta — revisar os
+números (ou a base da taxa) antes da apresentação. Por isso o slide não
+desenha proporções entre indicadores (a linha da jornada indica só a
+ordem das etapas).
 
 ## 17 — Próximos passos
 Validar → Conectar → Expandir → Evoluir.
+Visual: roadmap (Fase 01–04) com marcos que crescem a cada fase —
+metáfora de escala, não representa dado.
 
 ## 18 — Meme
 Imagem public/assets/images/meme-encerramento.jpeg (Homer: "Fim do

@@ -9,6 +9,7 @@ import {
     ArchitectureContent,
     TechStackContent,
     MemeContent,
+    GoalsContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -185,25 +186,30 @@ export const sequentialStepsContent: Record<string, SequentialStepsContent> = {
         closingPhrase: 'Do eletrônico parado em casa ao ponto correto de descarte.',
     },
     'proximos-passos': {
+        layout: 'roadmap',
         headline: 'Começar em Diadema. Escalar com propósito.',
         steps: [
             {
                 number: '01',
+                iconKey: 'flask',
                 title: 'Validar',
                 description: 'Testar a experiência com usuários reais e medir a aderência da solução.',
             },
             {
                 number: '02',
+                iconKey: 'handshake',
                 title: 'Conectar',
                 description: 'Buscar parcerias com ecopontos, cooperativas e atores do ecossistema de resíduos.',
             },
             {
                 number: '03',
+                iconKey: 'map',
                 title: 'Expandir',
                 description: 'Ampliar gradualmente a cobertura para outros bairros e, posteriormente, municípios do ABC.',
             },
             {
                 number: '04',
+                iconKey: 'rocket',
                 title: 'Evoluir',
                 description: 'Explorar novas plataformas e recursos digitais conforme os resultados da validação.',
             },
@@ -425,6 +431,28 @@ export const techStackContent: Record<string, TechStackContent> = {
             { id: 'eslint', name: 'ESLint', icon: 'eslint', role: 'Lint nos dois workspaces (typescript-eslint e eslint-config-next)' },
             { id: 'concurrently', name: 'concurrently', icon: 'concurrently', role: 'npm run dev na raiz sobe backend e frontend juntos' },
             { id: 'seed', name: 'Seed', icon: 'seed', role: 'Script npm run seed no backend' },
+        ],
+    },
+};
+
+// Slide 16 — metas iniciais informadas pela equipe (ainda não são
+// resultados medidos: o sistema está em desenvolvimento).
+// Atenção: 200 concluídas / 300 solicitadas ≈ 67%, abaixo da meta de
+// taxa de conclusão (80%+) — por isso o slide não desenha proporções
+// entre os indicadores. Revisar os números antes da banca.
+export const goalsContent: Record<string, GoalsContent> = {
+    resultados: {
+        eyebrow: 'Resultados esperados',
+        headline: 'Metas iniciais do EcoByte',
+        badge: 'Meta inicial',
+        journey: [
+            { icon: 'users', label: 'Usuários cadastrados', value: '500+' },
+            { icon: 'package', label: 'Coletas solicitadas', value: '300+' },
+            { icon: 'recycle', label: 'Coletas concluídas', value: '200+' },
+        ],
+        highlights: [
+            { icon: 'scale', label: 'Resíduos eletrônicos recolhidos', value: '2+ toneladas' },
+            { icon: 'badge-check', label: 'Taxa de conclusão', value: '80%+', gauge: 80 },
         ],
     },
 };

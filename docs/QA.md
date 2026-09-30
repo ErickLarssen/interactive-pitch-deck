@@ -61,7 +61,6 @@
       seguindo o mouse) funciona e nada corta em 1366×768
 - [ ] Slide Evidências: contagem termina exatamente em 62 Mt / 22,3% / 82 Mt
 - [ ] Slide Stakeholders: "Potencial parceiro" com selo tracejado
-- [ ] Slide 17 (Próximos passos) continua no visual anterior
 - [ ] Slide Arquitetura: simulação roda sozinha ao entrar, pacote vai e
       volta, terminal preenche ida | volta; botão repete; cabe em 1366×768
 - [ ] Slide Stack: logos acendem no hover, TypeScript/Zod/Vitest acendem
@@ -81,3 +80,11 @@
 - [ ] Dock: Reiniciar pede confirmação no painel; Cancelar não zera
 - [ ] Dock: abre por clique/Enter; fecha com clique fora e ESC; painel
       não sai da tela em 1366×768 (lista rola)
+- [ ] Slide Resultados esperados: números terminam exatamente em 500+ /
+      300+ / 200+ / 2+ toneladas / 80%+; medidor para em 80%; cabe em
+      1366×768; selo "Meta inicial" visível em todos
+- [ ] Slide Próximos passos: linha preenche e marcos acendem em sequência;
+      hover no card acende o marco; frase final não encosta no rodapé em
+      1366×768
+- [ ] Encerramento: logo visualmente centrado nos anéis (inclusive com o
+      mouse parado num canto da tela)

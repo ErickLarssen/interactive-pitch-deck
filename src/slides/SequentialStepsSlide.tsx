@@ -3,6 +3,7 @@ import { useStore } from '../store/useStore';
 import { sequentialStepsContent } from '../data/slideContent';
 import { FlowStrip } from '../components/FlowStrip';
 import { JourneyCards } from '../components/JourneyCards';
+import { RoadmapSteps } from '../components/RoadmapSteps';
 
 export function SequentialStepsSlide() {
     const currentSlide = useStore((s) => s.currentSlide);
@@ -18,6 +19,17 @@ export function SequentialStepsSlide() {
                 <h2 className="sequential-steps__headline">{content.headline}</h2>
                 <JourneyCards items={content.steps} />
                 {content.flow && <FlowStrip steps={content.flow} />}
+                {content.closingPhrase && <p className="premium-callout">{content.closingPhrase}</p>}
+            </section>
+        );
+    }
+
+    // Layout 'roadmap' (slide Próximos passos): linha do tempo de fases.
+    if (content.layout === 'roadmap') {
+        return (
+            <section className="sequential-steps sequential-steps--roadmap">
+                <h2 className="sequential-steps__headline">{content.headline}</h2>
+                <RoadmapSteps steps={content.steps} />
                 {content.closingPhrase && <p className="premium-callout">{content.closingPhrase}</p>}
             </section>
         );

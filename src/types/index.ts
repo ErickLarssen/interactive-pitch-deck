@@ -11,7 +11,8 @@ export type SlideType =
     | 'document-gallery'
     | 'architecture'
     | 'tech-stack'
-    | 'meme';
+    | 'meme'
+    | 'goals';
 
 // Ícones de tecnologia: logos de marca (simple-icons) ou, sem logo
 // oficial, ícone de linha lucide. Registro em components/BrandIcon.tsx.
@@ -133,7 +134,15 @@ export type InfoCardIconKey =
     | 'check'
     | 'smartphone'
     | 'warehouse'
-    | 'landmark';
+    | 'landmark'
+    | 'users'
+    | 'package'
+    | 'scale'
+    | 'badge-check'
+    | 'flask'
+    | 'handshake'
+    | 'map'
+    | 'rocket';
 export interface InfoCard {
     icon?: string;
     // Ícone de linha (lucide) usado pelo layout 'journey' no lugar do emoji.
@@ -162,7 +171,8 @@ export interface StepItem {
 }
 export interface SequentialStepsContent {
     // 'journey': renderiza os passos com JourneyCards (igual ao slide Problema).
-    layout?: 'journey';
+    // 'roadmap': linha do tempo com marcos crescentes (slide Próximos passos).
+    layout?: 'journey' | 'roadmap';
     headline: string;
     steps: StepItem[];
     flow?: string[];
@@ -253,4 +263,22 @@ export interface DocumentItem {
 export interface DocumentGalleryContent {
     headline: string;
     documents: DocumentItem[];
+}
+
+// Slide de metas (Resultados esperados). value é exibido exatamente
+// como informado pela equipe (ex.: "500+", "2+ toneladas", "80%+");
+// CountUpValue anima só o número. gauge (0–100) desenha o medidor.
+export interface GoalItem {
+    icon: InfoCardIconKey;
+    label: string;
+    value: string;
+    gauge?: number;
+}
+export interface GoalsContent {
+    eyebrow: string;
+    headline: string;
+    badge: string;
+    // Jornada operacional (ordem das etapas — NÃO implica proporção).
+    journey: GoalItem[];
+    highlights: GoalItem[];
 }

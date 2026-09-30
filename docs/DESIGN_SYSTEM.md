@@ -151,9 +151,8 @@ Aplicação por slide:
   parceiro (reforça a nota da equipe: nunca parecer parceria firmada).
 - 08 ODS: faixa superior na cor oficial ONU de cada ODS (#FD9D24,
   #BF8B2E, #3F7E44) — só decorativa, texto nunca usa essa cor.
-Slides fora dessa faixa (12–18) seguem no visual anterior; o slide
-17 (Próximos passos) compartilha o componente de etapas com o 09, mas
-só recebe o layout novo se o conteúdo tiver layout: 'journey'.
+O slide 17 (Próximos passos) compartilha o componente de etapas com
+o 09, mas usa o layout próprio 'roadmap' (ver abaixo).
 
 ## Slides técnicos (12 Arquitetura, 13 Stack)
 Mesma superfície premium, com linguagem de ferramenta de dev: grade
@@ -165,3 +164,30 @@ marca. Cores de marca muito escuras (Next.js, Express, shadcn/ui,
 Mongoose) são clareadas automaticamente até contraste ≥ 3:1 contra
 --bg-elevated, preservando o matiz (brandColor em BrandIcon.tsx).
 Pacote de requisição = azul da marca; de resposta = verde.
+
+## Selo tracejado = "ainda não é realidade"
+Borda tracejada marca o que é potencial/meta, não fato: "Potencial
+parceiro" (slide 7) e "Meta inicial" (slide 16). Borda sólida = algo
+que existe. Manter essa linguagem em novos slides.
+
+## Layout 'roadmap' (slide 17 — Próximos passos)
+SequentialStepsContent.layout = 'roadmap' → RoadmapSteps.tsx: linha do
+tempo (Fase 01–04) com um marco por etapa, cards premium alinhados a
+cada marco (StepItem.iconKey) e closingPhrase em premium-callout.
+Diferente do 'journey' do slide 09 de propósito: aqui a ideia é escala
+no tempo, não um fluxo de uso.
+
+## Roadmap (slide 17)
+Marcos crescem de 14px a 35px e passam do azul ao verde da marca
+(color-mix por índice) — metáfora de "começar pequeno e escalar", sem
+representar dado. Hover no card preenche e acende o marco dele.
+
+## Centralização óptica do logo animado (encerramento)
+O APNG tem o desenho com a caixa centralizada, mas o peso visual
+deslocado: com o logo completo, o centro de massa fica em (215, 139)
+no canvas 480×336, não em (240, 168) — o laço azul do ∞ é pesado e o
+texto e a folha são finos. .closing__logo usa translate(4%, 6.25%),
+que compensa ~75% dessa diferença (100% jogaria o texto baixo demais).
+Resultado medido: centro de massa a ~3–4px do centro dos anéis. Se o
+APNG for reexportado com outro enquadramento, remedir e ajustar.
+
