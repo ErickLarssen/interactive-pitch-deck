@@ -139,3 +139,9 @@ Nova proposta: createPortal(…, document.body) em Modal.tsx. Estado
 (openModalId), ESC e clique fora seguem iguais; eventos React
 continuam propagando pela árvore de componentes normalmente.
 Impacto: vale para todos os modais (documentos e integrantes).
+
+## Mesh escuro também no encerramento
+A camada .app-background-mesh (PresentationShell) passou a ficar ativa
+nos slides do tipo cover e closing, fechando o deck com a mesma
+atmosfera da abertura. Continua sendo a mesma camada sobre o vídeo
+persistente — nada é remontado.

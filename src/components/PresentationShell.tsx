@@ -29,7 +29,8 @@ export function PresentationShell() {
     const activeSpeakerId = useStore((s) => s.activeSpeakerId);
     const globalRunning = useStore((s) => s.globalRunning);
     const startGlobal = useStore((s) => s.startGlobal);
-    const isCover = useStore((s) => slides[s.currentSlide]?.type === 'cover');
+    // Capa e encerramento compartilham a atmosfera escura com mesh.
+    const hasMesh = useStore((s) => ['cover', 'closing'].includes(slides[s.currentSlide]?.type));
 
     useEffect(() => {
         if (activeSpeakerId && !globalRunning) {
@@ -46,8 +47,8 @@ export function PresentationShell() {
             />
             <div className="app-background-scrim" aria-hidden="true" />
             {/* Mesh da capa: camada extra sobre o mesmo vídeo persistente,
-                visível só no slide cover (crossfade via CSS). */}
-            <div className="app-background-mesh" data-active={isCover} aria-hidden="true" />
+                visível na capa e no encerramento (crossfade via CSS). */}
+            <div className="app-background-mesh" data-active={hasMesh} aria-hidden="true" />
             <SlideDeck />
             <ProgressIndicator />
             <NavButtons />

@@ -67,3 +67,16 @@ transform-origin no ponto do mouse (0,35s). Modal: entrada 0,28s
 (fade + 12px + escala 0,985). Zoom por botão/tecla anima 0,22s; roda
 do mouse e arraste aplicam direto (sem transição), para acompanhar a
 mão sem atraso.
+
+## Meme (slide 18)
+Entrada da janela: cai 40px de -6° e assenta em -1,5° (0,7s,
+power2.out). Borda: conic-gradient girando (6s, @property
+--meme-angle). Aplausos: 14 👏 por clique, 1,1–1,7s, opacos até 60%
+do voo. Reduced motion: sem borda girando, sem inclinação, sem chuva.
+
+## Encerramento (slide 19)
+Palavras sobem de uma máscara (stagger 45ms) → palco do logo (escala
+0,86→1, 0,9s) → tagline e "Obrigado." (stagger 140ms). Loops lentos:
+anéis 90s / 40s (sentido oposto) / órbita 14s, brilho "respirando" 5s.
+APNG: loop próprio de 5s (125 quadros). Reduced motion: estado final
+direto, sem loops CSS (o APNG em si continua animando — é o conteúdo).

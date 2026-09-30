@@ -10,7 +10,7 @@ arquitetura, stack, documentação, demo) → Resultados → Fechamento.
 05 Evidências/Pesquisa · 06 Público-alvo · 07 Stakeholders · 08 ODS ·
 09 Solução · 10 Diferenciais · 11 Funcionalidades · 12 Arquitetura ·
 13 Stack · 14 Documentação · 15 Demonstração · 16 Resultados ·
-17 Próximos passos · 18 Encerramento
+17 Próximos passos · 18 Meme · 19 Encerramento
 
 Esta ordem não é fixa no código — é dado, não estrutura. Reordenar é
 uma edição em slides.ts, não uma refatoração.

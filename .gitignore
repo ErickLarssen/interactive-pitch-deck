@@ -24,3 +24,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Projeto-fonte da animação do logo (o app usa só o APNG exportado)
+design-source/

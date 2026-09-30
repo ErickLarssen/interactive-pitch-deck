@@ -114,12 +114,6 @@ textarea {
     pointer-events: none;
 }
 
-.closing-slide__logo {
-    width: clamp(200px, 18vw, 340px);
-    margin: var(--space-4) auto var(--space-2);
-    display: block;
-}
-
 .sr-only {
     position: absolute;
     width: 1px;
@@ -1787,28 +1781,6 @@ textarea {
     }
 }
 
-/* Closing */
-.closing-slide {
-    text-align: center;
-}
-
-.closing-slide__lines p {
-    font-size: var(--font-heading);
-    margin: 0 0 var(--space-1);
-}
-
-.closing-slide__tagline {
-    font-size: var(--font-subheading);
-    color: var(--fg-muted);
-    margin: 0 0 var(--space-4);
-}
-
-.closing-slide__thanks {
-    font-size: 1.2rem;
-    color: var(--fg-muted);
-    opacity: 0.7;
-}
-
 /* Acessibilidade: hover aumenta a presença do item via escala (não via
     font-size), para ajudar quem está no fundo do auditório a acompanhar
     o item em foco. Usa transform para respeitar a prioridade de
@@ -3189,3 +3161,403 @@ textarea {
         grid-column: 1 / -1;
     }
 }
+
+/* ==========================================================
+   Meme (slide 18) — "janela" de visualizador com borda luminosa
+   girando, inclinação 3D no mouse e chuva de aplausos no clique.
+   ========================================================== */
+@property --meme-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.meme {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+/* Externo: recebe o transform da entrada (GSAP). Interno (.meme__tilt):
+   a inclinação do mouse — separados para não brigarem. */
+.meme__window {
+    margin: 0;
+    cursor: pointer;
+    perspective: 900px;
+}
+
+.meme__tilt {
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform 0.15s ease-out;
+}
+
+/* Borda luminosa: conic-gradient girando + cópia desfocada (brilho) */
+.meme__border {
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-lg) + 2px);
+    background: conic-gradient(
+        from var(--meme-angle),
+        transparent 0deg,
+        var(--brand-blue-light) 70deg,
+        var(--brand-green-light) 140deg,
+        transparent 200deg,
+        transparent 360deg
+    );
+    animation: meme-spin 6s linear infinite;
+}
+
+.meme__border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(22px);
+    opacity: 0.55;
+}
+
+@keyframes meme-spin {
+    to {
+        --meme-angle: 360deg;
+    }
+}
+
+.meme__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: #101216;
+    box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.85);
+}
+
+.meme__chrome {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+}
+
+.meme__lights {
+    display: flex;
+    gap: 6px;
+}
+
+.meme__lights i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.meme__res {
+    margin-left: auto;
+    opacity: 0.7;
+}
+
+/* Imagem de 330×376: altura limitada para não pixelar demais no telão */
+.meme__img {
+    display: block;
+    height: min(54vh, 470px);
+    width: auto;
+    user-select: none;
+}
+
+.meme__clap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6em 1.4em;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(22, 24, 28, 0.82);
+    color: var(--fg-primary);
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.meme__clap span {
+    font-size: 1.3em;
+}
+
+.meme__clap:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand-green-light);
+    box-shadow: 0 0 26px -6px rgba(var(--brand-green-rgb), 0.8);
+}
+
+.meme__clap:focus-visible {
+    outline: 2px solid var(--brand-blue-light);
+    outline-offset: 3px;
+}
+
+.meme__burst {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.meme__clap-particle {
+    position: absolute;
+    margin: -1rem 0 0 -1rem;
+    font-size: 2rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 10px rgba(var(--brand-green-rgb), 0.6));
+    will-change: transform, opacity;
+}
+
+/* ==========================================================
+   Encerramento (slide 19) — frase palavra a palavra, palco com o
+   APNG do logo (ápice) cercado de anéis de interface, tagline e
+   "Obrigado." em gradiente. Fundo: mesh da capa (PresentationShell).
+   ========================================================== */
+.closing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+}
+
+.closing__statement {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.closing__line {
+    margin: 0;
+    font-size: clamp(2rem, 3.4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+/* 1ª linha prepara (discreta), 2ª é a virada (branca) */
+.closing__line:first-child {
+    color: var(--fg-muted);
+    font-weight: 500;
+}
+
+.closing__word-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.08em;
+    margin-right: 0.26em;
+}
+
+.closing__word-mask:last-child {
+    margin-right: 0;
+}
+
+.closing__word {
+    display: inline-block;
+}
+
+.closing__stage {
+    --px: 0;
+    --py: 0;
+    --stage: min(46vh, 500px);
+    width: var(--stage);
+    height: var(--stage);
+    margin: var(--space-1) 0;
+    perspective: 900px;
+}
+
+.closing__stage-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transform: rotateX(calc(var(--py) * -10deg)) rotateY(calc(var(--px) * 12deg));
+    transition: transform 0.3s ease-out;
+}
+
+.closing__glow {
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(var(--brand-blue-rgb), 0.38),
+        rgba(var(--brand-green-rgb), 0.18) 45%,
+        transparent 70%
+    );
+    filter: blur(30px);
+    animation: closing-breathe 5s ease-in-out infinite;
+}
+
+/* Anéis em camada própria: deslocam um pouco no sentido oposto ao
+   mouse (paralaxe) e giram devagar, em sentidos opostos. */
+.closing__rings {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transform: translate(calc(var(--px) * -12px), calc(var(--py) * -12px));
+}
+
+.closing__ring {
+    transform-box: view-box;
+    transform-origin: 200px 200px;
+}
+
+.closing__ring--ticks line {
+    stroke: rgba(255, 255, 255, 0.28);
+    stroke-width: 1.2;
+}
+
+.closing__ring--ticks {
+    animation: closing-spin 90s linear infinite;
+}
+
+.closing__ring--arc circle {
+    fill: none;
+    stroke: url(#closing-arc);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 300 240;
+}
+
+.closing__ring--arc {
+    animation: closing-spin 40s linear infinite reverse;
+}
+
+.closing__ring--thin circle {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.14);
+    stroke-width: 1;
+    stroke-dasharray: 2 6;
+}
+
+.closing__ring--orbit circle {
+    fill: var(--brand-green-light);
+    filter: drop-shadow(0 0 6px var(--brand-green-light));
+}
+
+.closing__ring--orbit {
+    animation: closing-spin 14s linear infinite;
+}
+
+.closing__logo-btn {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    border: 0;
+    border-radius: 24px;
+    background: none;
+    cursor: pointer;
+    transform: translate(calc(var(--px) * 10px), calc(var(--py) * 10px));
+    transition: transform 0.3s ease-out;
+}
+
+.closing__logo-btn:focus-visible {
+    outline: 2px solid var(--brand-blue-light);
+    outline-offset: 6px;
+}
+
+/* APNG 480×336: largura ≤ tamanho nativo na maioria das telas (nítido) */
+.closing__logo {
+    display: block;
+    width: calc(var(--stage) * 0.9);
+    height: auto;
+    user-select: none;
+    filter: drop-shadow(0 0 28px rgba(var(--brand-blue-rgb), 0.35));
+    transition: filter 0.3s ease;
+}
+
+.closing__logo-btn:hover .closing__logo {
+    filter: drop-shadow(0 0 42px rgba(var(--brand-green-rgb), 0.55));
+}
+
+/* Onda de choque do clique no logo (criada e animada via GSAP) */
+.closing__shock {
+    position: absolute;
+    inset: 6%;
+    z-index: 1;
+    border-radius: 50%;
+    border: 2px solid var(--brand-green-light);
+    box-shadow:
+        0 0 24px rgba(var(--brand-green-rgb), 0.6),
+        inset 0 0 24px rgba(var(--brand-blue-rgb), 0.4);
+    pointer-events: none;
+}
+
+.closing__tagline {
+    margin: 0;
+    max-width: 60ch; /* uma linha: sobra altura para o palco do logo */
+    font-size: var(--font-subheading);
+    color: var(--fg-muted);
+}
+
+.closing__thanks {
+    margin: var(--space-1) 0 0;
+    font-size: clamp(2.25rem, 3.6vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1.05;
+    background: linear-gradient(120deg, var(--brand-blue-light), var(--brand-green-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes closing-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes closing-breathe {
+    50% {
+        opacity: 0.65;
+        transform: scale(0.94);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .meme__border,
+    .closing__glow,
+    .closing__ring {
+        animation: none;
+    }
+
+    .meme__tilt,
+    .closing__stage-inner,
+    .closing__logo-btn {
+        transition: none;
+    }
+}
+
+/* Telas baixas (1366×768): encolhe só espaçamentos e mídia, nunca a fonte */
+@media (max-height: 820px) {
+    .meme {
+        gap: var(--space-3);
+    }
+
+    .closing {
+        gap: var(--space-1);
+    }
+
+    .closing__stage {
+        --stage: min(42vh, 500px);
+    }
+}
+

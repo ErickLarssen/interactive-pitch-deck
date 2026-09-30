@@ -97,7 +97,14 @@ src/data/slideContent.ts (documentGalleryContent).
 ## 17 — Próximos passos
 Validar → Conectar → Expandir → Evoluir.
 
-## 18 — Encerramento
+## 18 — Meme
+Imagem public/assets/images/meme-encerramento.jpeg (Homer: "Fim do
+slide. Acho bom você bater palmas e não fazer perguntas."). Botão
+"Clique para aplaudir" (chuva de 👏). Alt text descreve o meme.
+
+## 19 — Encerramento
+Ápice visual: APNG em loop do logo (public/assets/videos/
+ECOBYTE-logo-animado.png); se falhar, cai para o logo estático.
 "O eletrônico pode ter chegado ao fim. O impacto dele não precisa
 terminar no lixo." EcoByte — Tecnologia para conectar pessoas ao
 descarte responsável. Obrigado.

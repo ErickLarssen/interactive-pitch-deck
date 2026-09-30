@@ -61,3 +61,11 @@ o apresentador aponta.
 - Fechar: X, ESC ou clique fora (na tela cheia não há "fora": X/ESC).
 Barra de zoom e dica ficam ABAIXO do documento, nunca sobre ele.
 Na galeria, o hover amplia a prévia a partir do ponto do mouse.
+
+## Meme (slide 18)
+Clique no meme (no ponto clicado) ou no botão "Clique para aplaudir"
+(Enter) → chuva de 👏. Mouse inclina a janela em 3D.
+
+## Encerramento (slide 19)
+Mouse inclina o palco do logo (paralaxe: anéis e logo em camadas).
+Clique/Enter no logo → onda de choque.

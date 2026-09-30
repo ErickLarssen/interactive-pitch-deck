@@ -10,7 +10,8 @@ export type SlideType =
     | 'closing'
     | 'document-gallery'
     | 'architecture'
-    | 'tech-stack';
+    | 'tech-stack'
+    | 'meme';
 
 // Ícones de tecnologia: logos de marca (simple-icons) ou, sem logo
 // oficial, ícone de linha lucide. Registro em components/BrandIcon.tsx.
@@ -200,6 +201,15 @@ export interface ClosingContent {
     projectName: string;
     tagline: string;
     thanks: string;
+    // APNG em loop, ápice do slide; se falhar, cai para o logo estático.
+    animatedLogo?: string;
+}
+
+export interface MemeContent {
+    src: string;
+    alt: string;
+    // Rótulo do botão de aplauso (interação do slide).
+    clapLabel: string;
 }
 
 export interface SlideConfig {

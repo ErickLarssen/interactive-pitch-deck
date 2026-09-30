@@ -17,7 +17,7 @@
 - [ ] Presenter Mode liga/desliga por atalho e por ?presenter=true
 - [ ] Slide de Integrantes cabe sem corte vertical em 1366×768 (testar
       especificamente — card foi compactado para isso)
-- [ ] Speaker Dock aparece em todos os 18 slides, não só quando alguém
+- [ ] Speaker Dock aparece em todos os 19 slides, não só quando alguém
       já está apresentando
 - [ ] Trocar de apresentador pelo dock finaliza o anterior automaticamente
       (conferir tempo realizado registrado)
@@ -69,3 +69,9 @@
 - [ ] Logos escuros (Next.js, Express, shadcn/ui) legíveis no fundo escuro
 - [ ] Slide Documentação: prévias reais dos 4 documentos; hover amplia a
       prévia no ponto do mouse; resolução exibida bate com o arquivo
+- [ ] Slide Meme: janela entra "caindo", inclina com o mouse; clique no
+      meme ou no botão solta a chuva de 👏
+- [ ] Slide Encerramento: frase entra palavra a palavra, APNG do logo em
+      loop no centro dos anéis (sem tela vazia — pré-carregado no Meme),
+      clique no logo gera onda de choque; "Obrigado." não encosta no rodapé
+      em 1366×768

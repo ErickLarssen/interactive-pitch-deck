@@ -74,3 +74,13 @@ DocumentViewer. No modal: índice 02 / 04, título, metadados e setas
 ‹ › para trocar de documento sem fechar. Modal ganhou o tamanho
 'full' (tela cheia) e passou a renderizar via portal no <body> (ver
 ARCHITECTURE.md).
+
+## Tipo meme (slide 18) e encerramento redesenhado (19)
+- meme (MemeSlide.tsx, memeContent): imagem numa "janela" de
+  visualizador (nome e resolução lidos do arquivo), borda luminosa
+  girando, inclinação 3D e chuva de aplausos no clique. Pré-carrega o
+  APNG do slide seguinte (animatedLogo do closingContent).
+- closing (ClosingSlide.tsx): frase palavra a palavra, palco com o APNG
+  (ClosingContent.animatedLogo) cercado de anéis HUD, paralaxe no mouse,
+  onda de choque no clique no logo, tagline e "Obrigado." em gradiente.
+  O mesh escuro da capa (PresentationShell) também fica ativo aqui.

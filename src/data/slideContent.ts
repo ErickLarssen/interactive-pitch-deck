@@ -8,6 +8,7 @@ import {
     DocumentGalleryContent,
     ArchitectureContent,
     TechStackContent,
+    MemeContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -282,6 +283,15 @@ export const closingContent: Record<string, ClosingContent> = {
         projectName: 'EcoByte',
         tagline: 'Tecnologia para conectar pessoas ao descarte responsável.',
         thanks: 'Obrigado.',
+        animatedLogo: '/assets/videos/ECOBYTE-logo-animado.png',
+    },
+};
+
+export const memeContent: Record<string, MemeContent> = {
+    meme: {
+        src: '/assets/images/meme-encerramento.jpeg',
+        alt: 'Meme do Homer Simpson apontando para a plateia: "Fim do slide. Acho bom você bater palmas e não fazer perguntas."',
+        clapLabel: 'Clique para aplaudir',
     },
 };
 
