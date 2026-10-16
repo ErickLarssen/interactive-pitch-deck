@@ -12,7 +12,8 @@ export type SlideType =
     | 'architecture'
     | 'tech-stack'
     | 'meme'
-    | 'goals';
+    | 'goals'
+    | 'demo';
 
 // Ícones de tecnologia: logos de marca (simple-icons) ou, sem logo
 // oficial, ícone de linha lucide. Registro em components/BrandIcon.tsx.
@@ -281,4 +282,38 @@ export interface GoalsContent {
     // Jornada operacional (ordem das etapas — NÃO implica proporção).
     journey: GoalItem[];
     highlights: GoalItem[];
+}
+
+// Slide de demonstração (15). Modo padrão: capturas reais do deploy em
+// produção — nunca um <iframe> ao vivo (ASSETS.md proíbe asset
+// essencial de URL externa; QA.md exige a aplicação inteira
+// funcionando sem internet). src aponta para a captura local; url/path
+// são só texto (nunca um link clicável) que mostra de onde ela veio.
+// liveHref é a ÚNICA dependência de internet do slide: uma ação
+// explícita do apresentador (botão "Abrir site ao vivo"), nunca algo
+// carregado automaticamente. O modo "video" é o plano B caso a
+// internet falhe no telão: vídeo local gravado, controles nativos,
+// sem autoplay.
+export interface DemoScreen {
+    id: string;
+    label: string;
+    path: string;
+    description: string;
+    src: string;
+    iconKey: InfoCardIconKey;
+}
+export interface DemoVideo {
+    src: string;
+    poster: string;
+    caption: string;
+}
+export interface DemoContent {
+    eyebrow: string;
+    headline: string;
+    intro?: string;
+    url: string;
+    liveHref: string;
+    hint: string;
+    screens: DemoScreen[];
+    video: DemoVideo;
 }

@@ -95,3 +95,28 @@ como a equipe informou; CountUpValue anima só o número.
 SequentialStepsContent.layout = 'roadmap' → RoadmapSteps.tsx (detalhes
 visuais em DESIGN_SYSTEM.md). Etapas com iconKey; closingPhrase em
 premium-callout.
+
+## Tipo de slide: demo (slide 15 — Demonstração)
+DemoSlide.tsx + demoContent (src/data/slideContent.ts). Janela de
+navegador (demo-window) com capturas reais do deploy em produção
+(eco-byte-neon.vercel.app) — nunca um `<iframe>` ao vivo: ver
+ASSETS.md. Coluna lateral (demo-tile, mesmo padrão hover/seleção do
+Stack) troca a captura mostrada; clique na janela abre Modal +
+DocumentViewer (reaproveitado do slide de Documentação) para navegar
+em detalhe. Content: eyebrow, headline, url (domínio real, texto —
+nunca link clicável), hint, screens (id, label, path, description,
+src, iconKey).
+
+### Modo Capturas ↔ Vídeo (plano B) + link ao vivo
+Barra `demo__controls` acima da janela: tabs `demo__mode`
+("Capturas" | "Vídeo (plano B)", `role="tablist"`) trocam o conteúdo
+de `demo__body` (remonta via `key={mode}`, crossfade — ver MOTION.md);
+no modo Vídeo a coluna lateral vira legenda (`demo-video-info`) e a
+janela mostra um `<video controls playsInline>` local (poster +
+`content.video.src`); sem `autoplay`/`loop` — é conteúdo que o
+apresentador toca, não um fundo ambiente. Se o arquivo ainda não
+existir, `onError` troca para um estado de placeholder
+(`demo-video__pending`) em vez de ícone de vídeo quebrado. À direita,
+`demo__live-link` é um `<a target="_blank" rel="noopener noreferrer">`
+real para `content.liveHref` — a ÚNICA dependência de internet do
+slide, e só por ação explícita do apresentador (ver ASSETS.md/QA.md).

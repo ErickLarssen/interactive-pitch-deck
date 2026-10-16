@@ -71,6 +71,20 @@ Mouse inclina o palco inteiro (logo e anéis juntos, sempre concêntricos —
 sem deslocamento próprio de cada camada).
 Clique/Enter no logo → onda de choque.
 
+## Demonstração (slide 15)
+Tela da janela: hover numa tela da lista faz prévia (sem fixar);
+clique fixa a seleção — mesmo padrão hover-prévia/click-fixa do Stack
+(slide 13). Clique na janela abre o Modal com DocumentViewer (zoom/pan
+idêntico ao slide de Documentação: roda do mouse, arrastar, botões,
+teclado). ‹ › no topo do modal trocam de tela sem fechar e mantêm a
+seleção da lista sincronizada. ESC fecha o modal antes de navegar
+slide (mesma regra geral).
+Tabs "Capturas"/"Vídeo (plano B)": clique troca o modo (não é hover).
+No modo Vídeo, o player usa controles nativos (play/pause/volume/tela
+cheia do próprio `<video>`) — nenhum controle customizado. "Abrir site
+ao vivo" é um link de verdade: abre eco-byte-neon.vercel.app em nova
+aba, sem sair da apresentação nem precisar de confirmação.
+
 ## Dock de apresentadores
 Hover no chip abre o painel; clique no chip fixa/solta (acessível por
 teclado). Fixado: fecha com clique fora ou ESC (ESC sem modal aberto

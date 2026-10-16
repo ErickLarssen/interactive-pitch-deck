@@ -10,6 +10,7 @@ import {
     TechStackContent,
     MemeContent,
     GoalsContent,
+    DemoContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -382,7 +383,7 @@ export const architectureContent: Record<string, ArchitectureContent> = {
 
 export const techStackContent: Record<string, TechStackContent> = {
     stack: {
-        headline: 'TypeScript do navegador ao banco.',
+        headline: 'Tecnologias usadas.',
         groups: [
             {
                 label: 'Frontend',
@@ -453,6 +454,51 @@ export const goalsContent: Record<string, GoalsContent> = {
         highlights: [
             { icon: 'scale', label: 'Resíduos eletrônicos recolhidos', value: '2+ toneladas' },
             { icon: 'badge-check', label: 'Taxa de conclusão', value: '80%+', gauge: 80 },
+        ],
+    },
+};
+
+// Slide 15 — Demonstração. Capturas reais do deploy em produção
+// (eco-byte-neon.vercel.app, páginas públicas); textos copiados do
+// próprio site, sem invenção. Ver docs/CONTENT.md e docs/ASSETS.md.
+export const demoContent: Record<string, DemoContent> = {
+    demonstracao: {
+        eyebrow: 'Produto no ar',
+        headline: 'A EcoByte já está em produção',
+        intro: 'Protótipo navegável, publicado e funcionando — não é um mockup estático.',
+        url: 'eco-byte-neon.vercel.app',
+        liveHref: 'https://eco-byte-neon.vercel.app/',
+        hint: 'Clique na janela para abrir em tela cheia e navegar em detalhe',
+        video: {
+            src: '/assets/videos/demo-walkthrough.mp4',
+            poster: '/assets/images/demo/demo-home.jpg',
+            caption: 'Gravação de apoio: mostra o fluxo completo do app mesmo sem internet no telão.',
+        },
+        screens: [
+            {
+                id: 'demo-inicio',
+                label: 'Início',
+                path: '/',
+                description: 'Você solicita a coleta, a equipe EcoByte recolhe e leva o material ao nosso ecoponto.',
+                src: '/assets/images/demo/demo-home.jpg',
+                iconKey: 'house',
+            },
+            {
+                id: 'demo-como-funciona',
+                label: 'Como funciona',
+                path: '/como-funciona',
+                description: 'Do pedido ao ecoponto, em quatro etapas: você solicita, a equipe recolhe, encaminha e o descarte é concluído.',
+                src: '/assets/images/demo/demo-como-funciona.jpg',
+                iconKey: 'refresh',
+            },
+            {
+                id: 'demo-ecoponto',
+                label: 'Ecoponto',
+                path: '/ecoponto',
+                description: 'Todo o material recolhido pela equipe EcoByte é levado ao nosso ecoponto, em Diadema.',
+                src: '/assets/images/demo/demo-ecoponto.jpg',
+                iconKey: 'recycle',
+            },
         ],
     },
 };
