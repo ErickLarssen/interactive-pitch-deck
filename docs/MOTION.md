@@ -87,6 +87,14 @@ números contam (CountUpValue, 1,2s, escalonados); medidor da taxa
 preenche até a meta junto com a contagem; balança "se equilibra" uma
 vez (1,8s). Reduced motion: estado final direto.
 
+## Demonstração (slide 15)
+Janela e tiles entram com useStaggerReveal. Troca de tela: crossfade
+0,4s (mesma keyframe `inspector-in` do Inspector do Stack) na imagem e
+na descrição; ponto "ao vivo" pulsa em loop lento (2,4s). Troca de modo
+(Capturas ↔ Vídeo): `demo__body` remonta por `key={mode}` e entra com a
+mesma keyframe `inspector-in` (0,35s) — nunca um corte seco. Reduced
+motion: sem crossfade, pulso nem entrada de modo; estado final direto.
+
 ## Próximos passos (slide 17)
 Linha do roadmap se preenche (1,6s, power1.inOut); cada marco acende
 quando a linha passa por ele e o card correspondente sobe logo depois

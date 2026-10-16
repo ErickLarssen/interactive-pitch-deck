@@ -86,5 +86,20 @@
 - [ ] Slide Próximos passos: linha preenche e marcos acendem em sequência;
       hover no card acende o marco; frase final não encosta no rodapé em
       1366×768
+- [ ] Slide Demonstração: hover numa tela da lista troca a prévia na
+      janela sem fixar; clique fixa a seleção; clique na janela abre o
+      modal com zoom/pan; ‹ › trocam de tela no modal mantendo a lista
+      sincronizada; ESC fecha sem navegar; cabe em 1366×768
+- [ ] Slide Demonstração funciona sem internet no modo Capturas e no
+      modo Vídeo (capturas e vídeo são arquivos locais, não um iframe
+      do deploy) — só o botão "Abrir site ao vivo" depende de internet,
+      e só se o apresentador clicar nele
+- [ ] Slide Demonstração: tabs Capturas/Vídeo trocam com crossfade, sem
+      corte seco; "Abrir site ao vivo" abre eco-byte-neon.vercel.app em
+      nova aba (não navega para fora da apresentação)
+- [x] Slide Demonstração, modo Vídeo: demo-walkthrough.mp4 carrega (sem
+      cair no placeholder "Vídeo ainda não adicionado") e
+      play/pause/volume/tela cheia funcionam pelos controles nativos —
+      testado em 2026-10-15 (1:34, 25,4 MB)
 - [ ] Encerramento: logo visualmente centrado nos anéis (inclusive com o
       mouse parado num canto da tela)

@@ -4269,6 +4269,445 @@ textarea {
 }
 
 /* ==========================================================
+   Demonstração (slide 15) — janela de navegador com capturas reais
+   do deploy em produção (eco-byte-neon.vercel.app). Nunca um iframe
+   ao vivo: ASSETS.md proíbe asset essencial de URL externa e QA.md
+   exige a aplicação inteira funcionando sem internet no telão.
+   Seleção de tela reaproveita o padrão hover-prévia/click-fixa do
+   Stack (slide 13); abrir a janela reaproveita Modal + DocumentViewer
+   (zoom/pan) do slide de Documentação.
+   ========================================================== */
+.demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.demo__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.demo__eyebrow {
+    margin: 0 0 var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-blue-light);
+}
+
+.demo__headline {
+    margin: 0;
+    font-size: var(--font-heading);
+    line-height: 1.1;
+}
+
+/* Selo "ao vivo": ponto verde pulsando (mesma linguagem do
+   indicador ativo do Inspector no Stack) + domínio real do deploy. */
+.demo__live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(22, 24, 28, 0.6);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--fg-primary);
+    white-space: nowrap;
+}
+
+.demo__live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand-green-light);
+    box-shadow: 0 0 8px var(--brand-green-light);
+    animation: demo-live-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes demo-live-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.demo__body {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.6fr) minmax(0, 1.7fr);
+    gap: var(--space-4);
+    align-items: stretch;
+    /* key={mode} remonta este nó ao trocar Capturas ↔ Vídeo: entra com
+       a mesma keyframe do crossfade de tela (inspector-in), em vez de
+       um corte seco. */
+    animation: inspector-in 0.35s ease-out both;
+}
+
+.demo__nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.demo__nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.demo-tile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 14px 16px;
+    font: inherit;
+    text-align: left;
+    color: var(--fg-primary);
+    cursor: pointer;
+}
+
+.demo-tile[data-selected='true'] {
+    border-color: rgba(var(--brand-blue-rgb), 0.5);
+    box-shadow: 0 0 0 1px rgba(var(--brand-blue-rgb), 0.35);
+}
+
+.demo-tile__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.demo-tile__label {
+    font-size: clamp(1.1rem, 1.1vw, 1.35rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.demo-tile__path {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+}
+
+.demo__description {
+    flex: 1;
+    margin: 0;
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: rgba(22, 24, 28, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: var(--font-body);
+    line-height: 1.45;
+    color: var(--fg-primary);
+    animation: inspector-in 0.35s ease-out both;
+}
+
+/* Janela de navegador: barra com "semáforo" neutro (nunca as cores
+   de estado do timer — DESIGN_SYSTEM.md restringe vermelho/âmbar/verde
+   a indicadores de tempo) + barra de endereço com o domínio real. */
+.demo-window {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.demo-window__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.demo-window__dots {
+    display: flex;
+    gap: 6px;
+    flex: none;
+}
+
+.demo-window__dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.demo-window__url {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0.35em 1em;
+    border-radius: 999px;
+    background: rgba(10, 11, 13, 0.55);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.demo-window__lock {
+    flex: none;
+    width: 10px;
+    height: 8px;
+    margin-top: 5px;
+    border: 1.5px solid var(--brand-green-light);
+    border-radius: 2px;
+    position: relative;
+}
+
+.demo-window__lock::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    bottom: 100%;
+    width: 6px;
+    height: 5px;
+    border: 1.5px solid var(--brand-green-light);
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+}
+
+.demo-window__path {
+    color: var(--fg-primary);
+}
+
+.demo-window__viewport {
+    position: relative;
+    /* aspect-ratio (não flex: 1) para ter altura própria mesmo sem uma
+       altura explícita herdada do grid — flex: 1 colapsa a 0 quando o
+       único filho é position: absolute (sem tamanho intrínseco).
+       Mais "letterbox" que 16/9: o conteúdo real do site é um hero alto;
+       cortar para ~16/7 mostra mais dele sem estourar 1366×768. */
+    aspect-ratio: 16 / 7.2;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.demo-window__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+    animation: inspector-in 0.4s ease-out both;
+}
+
+.demo-window.premium-card:hover .demo-window__image,
+.demo-window.premium-card:focus-visible .demo-window__image {
+    transform: scale(1.03);
+}
+
+/* A janela é grande demais para o levante padrão do premium-card
+   (translateY -4px + scale 1.04 vale para cards pequenos) */
+.demo-window.premium-card:hover,
+.demo-window.premium-card:focus-visible {
+    transform: translateY(-2px);
+}
+
+.demo-window__open {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    background: rgba(10, 11, 13, 0.88);
+    color: var(--fg-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.demo-window:hover .demo-window__open,
+.demo-window:focus-visible .demo-window__open {
+    opacity: 1;
+    transform: none;
+}
+
+.demo__hint {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+}
+
+/* Barra de controles: alterna Capturas/Vídeo (plano B) + único link
+   real para o deploy — clique explícito do apresentador, nunca algo
+   carregado sozinho (ver ASSETS.md e QA.md). */
+.demo__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.demo__mode {
+    display: inline-flex;
+    gap: 6px;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(22, 24, 28, 0.6);
+}
+
+.demo__mode button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5em 1.1em;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg-muted);
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.demo__mode button:hover {
+    color: var(--fg-primary);
+}
+
+.demo__mode button:focus-visible {
+    outline: 2px solid var(--brand-blue-light);
+    outline-offset: 2px;
+}
+
+.demo__mode button[data-active='true'] {
+    color: #0a0b0d;
+    background: var(--brand-gradient);
+}
+
+.demo__live-link {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Modo vídeo: mesma "janela" premium, painel lateral vira legenda */
+.demo-video-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3);
+}
+
+.demo-video-info .demo__description {
+    padding: 0;
+    border: none;
+    background: none;
+    animation: none;
+}
+
+.demo-window__video {
+    object-fit: contain;
+    background: #000000;
+}
+
+.demo-video__pending {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--fg-muted);
+    background: var(--bg-elevated);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .demo__live-dot,
+    .demo__description,
+    .demo-window__image,
+    .demo__body {
+        animation: none !important;
+    }
+}
+
+/* Telas baixas (1366×768): encolhe espaçamentos e a janela, nunca a fonte */
+@media (max-height: 820px) {
+    .demo {
+        gap: var(--space-3);
+    }
+
+    .demo__body {
+        gap: var(--space-3);
+    }
+
+    .demo-tile {
+        padding: 10px 14px;
+    }
+
+    .demo__description {
+        padding: var(--space-2);
+    }
+
+    .demo-window__viewport {
+        aspect-ratio: 16 / 6;
+    }
+}
+
+@media (max-width: 1100px) {
+    .demo__body {
+        grid-template-columns: 1fr;
+    }
+
+    .demo__nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .demo__nav li {
+        flex: 1 1 200px;
+    }
+
+    .demo__controls {
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================================
    Próximos passos (slide 17) — roadmap. Linha do tempo com marcos
    que crescem de fase em fase (metáfora de escala, não dado) e mudam
    do azul para o verde; cards premium alinhados a cada marco.

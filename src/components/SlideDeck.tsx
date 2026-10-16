@@ -16,6 +16,7 @@ import { ArchitectureSlide } from '../slides/ArchitectureSlide';
 import { TechStackSlide } from '../slides/TechStackSlide';
 import { MemeSlide } from '../slides/MemeSlide';
 import { GoalsSlide } from '../slides/GoalsSlide';
+import { DemoSlide } from '../slides/DemoSlide';
 
 function renderSlide(type: string) {
     switch (type) {
@@ -43,6 +44,8 @@ function renderSlide(type: string) {
             return <TechStackSlide />;
         case 'goals':
             return <GoalsSlide />;
+        case 'demo':
+            return <DemoSlide />;
         case 'meme':
             return <MemeSlide />;
         case 'content':

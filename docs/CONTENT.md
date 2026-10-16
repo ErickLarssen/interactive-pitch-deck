@@ -89,7 +89,30 @@ Casos de Uso, IDEF-0, BPMN. Documentos já produzidos pela equipe — ver
 src/data/slideContent.ts (documentGalleryContent).
 
 ## 15 — Demonstração
-[DEFINIR FORMATO DA DEMO] — não preencher agora.
+Formato: janela de navegador com capturas reais do deploy em produção
+(eco-byte-neon.vercel.app), não um app ao vivo — ver ASSETS.md sobre o
+porquê. Três telas públicas, selecionáveis na lateral (hover prévia,
+clique fixa): Início, Como funciona, Ecoponto. Clique na janela abre
+zoom/pan em tela cheia (mesmo visualizador do slide de Documentação).
+Textos (headline e descrição de cada tela) são cópia do próprio site.
+Nota da equipe: a página /solicitar-coleta e o fluxo autenticado
+(criar conta, solicitar coleta, acompanhamento) não entraram — exigem
+login, e este slide só usa páginas públicas.
+
+Dois modos, trocados por tab no topo do slide:
+- Capturas (padrão): as três telas acima.
+- Vídeo (plano B): gravação local da equipe (1:34), com controles de
+  play/pause/volume — para quando a internet falhar no telão.
+
+Além dos dois modos, um botão "Abrir site ao vivo" abre
+eco-byte-neon.vercel.app em nova aba — único ponto do deck que depende
+de internet, e só se o apresentador decidir clicar nele. Se a internet
+cair no meio da apresentação ao vivo, basta voltar a este slide e usar
+o modo Vídeo ou as Capturas.
+Endereço do ecoponto (tela "Ecoponto"): o endereço exibido (Rua
+Europa, 4) está correto — o ecoponto fica em São Bernardo do Campo,
+na divisa com Diadema. A coleta em si continua restrita a Diadema; só
+o ponto físico de destinação fica do outro lado da divisa.
 
 ## 16 — Resultados esperados
 Metas iniciais informadas pela equipe (NÃO são resultados medidos — o
