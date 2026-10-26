@@ -145,3 +145,33 @@ A camada .app-background-mesh (PresentationShell) passou a ficar ativa
 nos slides do tipo cover e closing, fechando o deck com a mesma
 atmosfera da abertura. Continua sendo a mesma camada sobre o vídeo
 persistente — nada é remontado.
+
+## Decisão: build final roda direto de file:// (sem servidor)
+Problema: a apresentação no dia pode usar um computador que a equipe
+não controla com antecedência (ex.: o PC já plugado na TV do
+auditório) — não dá pra garantir Node/npm/git instalados nele, nem
+internet. `npm run preview` exige um processo rodando; abrir
+`dist/index.html` direto (clique duplo, sem servidor) é o único modo
+que funciona em QUALQUER computador com um navegador.
+Dois obstáculos foram corrigidos para isso funcionar:
+1. Vite por padrão gera `<script type="module" src="...">` — navegador
+   bloqueia esse carregamento por CORS quando a página é aberta via
+   `file://` (origem "null"), resultando em tela em branco. Resolvido
+   com `vite-plugin-singlefile` (vite.config.ts): o JS e o CSS do build
+   ficam inline no próprio `index.html`, como `<script>` clássico —
+   sem fetch nenhum, então roda em qualquer protocolo.
+2. Todo asset de `public/` (logos, fotos da equipe, vídeos, capturas do
+   slide de demonstração, documentos, APNG) era referenciado no código
+   com caminho absoluto (`/assets/...`), que sob `file://` resolve pra
+   raiz do sistema de arquivos, não pra pasta do projeto — quebrava
+   todas as imagens/vídeos. Trocado para caminho relativo
+   (`./assets/...`) em todo o código-fonte (ver busca por `/assets/`
+   antes de adicionar qualquer novo asset — sempre usar `./assets/`).
+`base: './'` no vite.config.ts garante que os caminhos que o próprio
+Vite gera também fiquem relativos.
+Resultado: `npm run build` produz uma pasta `dist/` com só um
+`index.html` (JS+CSS inline) + `dist/assets/` (mídia copiada de
+`public/`). Copiar essa pasta pra um pendrive e abrir o `index.html`
+com dois cliques funciona em qualquer PC Windows com um navegador,
+sem instalar nada e sem internet. Testado via Chrome headless
+(`file://`) com sucesso em 2026-10-25.

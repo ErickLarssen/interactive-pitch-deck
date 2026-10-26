@@ -290,13 +290,13 @@ export const closingContent: Record<string, ClosingContent> = {
         projectName: 'EcoByte',
         tagline: 'Tecnologia para conectar pessoas ao descarte responsável.',
         thanks: 'Obrigado.',
-        animatedLogo: '/assets/videos/ECOBYTE-logo-animado.png',
+        animatedLogo: './assets/videos/ECOBYTE-logo-animado.png',
     },
 };
 
 export const memeContent: Record<string, MemeContent> = {
     meme: {
-        src: '/assets/images/meme-encerramento.jpeg',
+        src: './assets/images/meme-encerramento.jpeg',
         alt: 'Meme do Homer Simpson apontando para a plateia: "Fim do slide. Acho bom você bater palmas e não fazer perguntas."',
         clapLabel: 'Clique para aplaudir',
     },
@@ -306,10 +306,10 @@ export const documentGalleryContent: Record<string, DocumentGalleryContent> = {
     documentacao: {
         headline: 'Documentação do projeto',
         documents: [
-            { id: 'doc-navegacao', label: 'Diagrama de Navegação', src: '/assets/documents/diagrama-navegacao.png' },
-            { id: 'doc-casos-uso', label: 'Casos de Uso', src: '/assets/documents/casos-de-uso.png' },
-            { id: 'doc-idef0', label: 'IDEF-0', src: '/assets/documents/idef-0.png' },
-            { id: 'doc-bpmn', label: 'BPMN', src: '/assets/documents/bpmn.png' },
+            { id: 'doc-navegacao', label: 'Diagrama de Navegação', src: './assets/documents/diagrama-navegacao.png' },
+            { id: 'doc-casos-uso', label: 'Casos de Uso', src: './assets/documents/casos-de-uso.png' },
+            { id: 'doc-idef0', label: 'IDEF-0', src: './assets/documents/idef-0.png' },
+            { id: 'doc-bpmn', label: 'BPMN', src: './assets/documents/bpmn.png' },
         ],
     },
 };
@@ -470,8 +470,8 @@ export const demoContent: Record<string, DemoContent> = {
         liveHref: 'https://eco-byte-neon.vercel.app/',
         hint: 'Clique na janela para abrir em tela cheia e navegar em detalhe',
         video: {
-            src: '/assets/videos/demo-walkthrough.mp4',
-            poster: '/assets/images/demo/demo-home.jpg',
+            src: './assets/videos/demo-walkthrough.mp4',
+            poster: './assets/images/demo/demo-home.jpg',
             caption: 'Gravação de apoio: mostra o fluxo completo do app mesmo sem internet no telão.',
         },
         screens: [
@@ -480,7 +480,7 @@ export const demoContent: Record<string, DemoContent> = {
                 label: 'Início',
                 path: '/',
                 description: 'Você solicita a coleta, a equipe EcoByte recolhe e leva o material ao nosso ecoponto.',
-                src: '/assets/images/demo/demo-home.jpg',
+                src: './assets/images/demo/demo-home.jpg',
                 iconKey: 'house',
             },
             {
@@ -488,7 +488,7 @@ export const demoContent: Record<string, DemoContent> = {
                 label: 'Como funciona',
                 path: '/como-funciona',
                 description: 'Do pedido ao ecoponto, em quatro etapas: você solicita, a equipe recolhe, encaminha e o descarte é concluído.',
-                src: '/assets/images/demo/demo-como-funciona.jpg',
+                src: './assets/images/demo/demo-como-funciona.jpg',
                 iconKey: 'refresh',
             },
             {
@@ -496,7 +496,7 @@ export const demoContent: Record<string, DemoContent> = {
                 label: 'Ecoponto',
                 path: '/ecoponto',
                 description: 'Todo o material recolhido pela equipe EcoByte é levado ao nosso ecoponto, em Diadema.',
-                src: '/assets/images/demo/demo-ecoponto.jpg',
+                src: './assets/images/demo/demo-ecoponto.jpg',
                 iconKey: 'recycle',
             },
         ],

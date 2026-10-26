@@ -4,6 +4,11 @@
 - [ ] Fullscreen funciona (e falha graciosamente se bloqueado)
 - [ ] Vídeos locais tocam sem internet
 - [ ] Aplicação inteira funciona sem internet
+- [x] `dist/index.html` (gerado por `npm run build`) abre com duplo
+      clique, direto de um pendrive, sem servidor nem internet, em
+      qualquer PC — testado via Chrome headless em 2026-10-25 (ver
+      ARCHITECTURE.md). Reconferir manualmente no PC real do auditório
+      antes da apresentação.
 - [ ] Timer inicia/pausa/encerra/reinicia corretamente
 - [ ] Timer global não perde sincronia ao trocar slides
 - [ ] Reset completo funciona (fora do modo oficial)

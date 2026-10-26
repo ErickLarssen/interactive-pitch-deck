@@ -4,7 +4,7 @@ import { slides } from '../data/slides';
 import { useStore } from '../store/useStore';
 import { closingContent } from '../data/slideContent';
 
-const STATIC_LOGO = '/assets/logos/ecobyte-logo.png';
+const STATIC_LOGO = './assets/logos/ecobyte-logo.png';
 const RING_TICKS = 72;
 
 export function ClosingSlide() {

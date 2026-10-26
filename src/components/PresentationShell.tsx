@@ -15,8 +15,8 @@ import { slides } from '../data/slides';
 import { CursorGlow } from './CursorGlow';
 
 const PITCH_BACKGROUND = {
-    src: '/assets/videos/eco-motion-loop.mp4',
-    poster: '/assets/videos/eco-motion-loop-poster.jpg',
+    src: './assets/videos/eco-motion-loop.mp4',
+    poster: './assets/videos/eco-motion-loop-poster.jpg',
 };
 
 export function PresentationShell() {

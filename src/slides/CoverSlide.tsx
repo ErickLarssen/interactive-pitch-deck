@@ -4,7 +4,7 @@ export function CoverSlide() {
             <div className="cover-slide__panel">
                 <h1 className="sr-only">EcoByte</h1>
                 <div className="cover-slide__logo-slot">
-                    <img src="/assets/logos/ecobyte-logo.png" alt="EcoByte" className="cover-slide__logo" />
+                    <img src="./assets/logos/ecobyte-logo.png" alt="EcoByte" className="cover-slide__logo" />
                 </div>
                 <p className="cover-slide__subtitle">
                     Coleta inteligente de lixo eletrônico em Diadema-SP
