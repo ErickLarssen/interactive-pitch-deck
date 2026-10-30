@@ -49,7 +49,7 @@ export function DocumentGallerySlide() {
                 </p>
             </header>
 
-            <ul className="docs__grid" style={{ '--docs-cols': Math.min(docs.length, 4) } as React.CSSProperties}>
+            <ul className="docs__grid" style={{ '--docs-cols': Math.min(docs.length, 3) } as React.CSSProperties}>
                 {docs.map((doc, i) => (
                     <li key={doc.id}>
                         <button

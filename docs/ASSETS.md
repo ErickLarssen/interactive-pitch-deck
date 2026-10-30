@@ -1,13 +1,25 @@
 # ASSETS.md
 
-## Inventário (preencher conforme materiais forem fornecidos)
+## Inventário
 | arquivo | tipo | local | uso | slide | dimensões | status |
 |---|---|---|---|---|---|---|
-| eco-motion-loop.mp4 | MP4 | assets/videos/ | background capa/solução/encerramento | 01, 09, 19 | 1920x1080 | pendente |
-| eco-motion-loop-poster.jpg | JPG | assets/videos/ | poster/fallback do vídeo acima | 01, 09, 18 | 1920x1080 | pendente | | diagrama-navegacao.png | PNG | assets/documents/ | modal documentação | 14 | — | recebido, aguardando ser salvo no repo |
-| casos-de-uso.png | PNG | assets/documents/ | modal documentação | 14 | — | recebido, aguardando ser salvo no repo |
-| idef-0.png | PNG | assets/documents/ | modal documentação | 14 | — | recebido, aguardando ser salvo no repo |
-| bpmn.png | PNG | assets/documents/ | modal documentação | 14 | — | recebido, aguardando ser salvo no repo |
+| eco-motion-loop.mp4 | MP4 | assets/videos/ | background capa/solução/encerramento | 01, 09, 19 | 1920x1080 | em uso |
+| eco-motion-loop-poster.jpg | JPG | assets/videos/ | poster/fallback do vídeo acima | 01, 09, 18 | 1920x1080 | em uso |
+
+## Documentação (slide 14) — galeria de 6 documentos
+| arquivo | tipo | local | uso | dimensões | status |
+|---|---|---|---|---|---|
+| casos-de-uso.png | PNG | assets/documents/ | modal documentação — 01 Casos de Uso | 990×1022 | em uso |
+| idef-0.png | PNG | assets/documents/ | modal documentação — 02 IDEF-0 | 859×529 | em uso |
+| bpmn.png | PNG | assets/documents/ | modal documentação — 03 BPMN | 799×532 | em uso (arte atualizada em 2026-10-30) |
+| EAP.png | PNG | assets/documents/ | modal documentação — 04 EAP (Estrutura Analítica) | 1035×739 | em uso |
+| smart.png | PNG | assets/documents/ | modal documentação — 05 Metas SMART | 558×784 | em uso |
+| canva-mvp.png | PNG | assets/documents/ | modal documentação — 06 MVP & Modelo de Negócios | 1920×1080 | em uso |
+
+diagrama-navegacao.png foi removido do slide e do repositório (não é
+mais referenciado em slideContent.ts) — pedido da equipe em
+2026-10-30. Grade do slide foi de 4 documentos (1 linha) para 6 (2
+linhas de 3); ver DESIGN_SYSTEM.md e docs/SLIDE_SYSTEM.md.
 
 ## Demonstração (slide 15) — capturas do deploy em produção
 | arquivo | tipo | local | uso | slide | dimensões | status |
@@ -42,7 +54,12 @@ ver DemoSlide.tsx (`videoError`/`onError`).
   object-fit: cover, sempre com poster estático de fallback.
 - Imagem: AVIF/WebP quando possível, nunca 8K para exibição 1080p.
 - Nenhum asset essencial vindo de URL externa.
-- Ícones de ODS: usar os oficiais fornecidos, sem alterar cor sem necessidade.| ECOBYTE-logo-animado.png | APNG (125 quadros, loop 5 s) | assets/videos/ | logo animado do encerramento | 19 | 480x336 | em uso (~15 MB; pré-carregado no slide 18) |
+- Ícones de ODS: usar os oficiais fornecidos, sem alterar cor sem necessidade.
+
+## Meme e encerramento (slides 18–19)
+| arquivo | tipo | local | uso | slide | dimensões | status |
+|---|---|---|---|---|---|---|
+| ECOBYTE-logo-animado.png | APNG (125 quadros, loop 5 s) | assets/videos/ | logo animado do encerramento | 19 | 480x336 | em uso (~15 MB; pré-carregado no slide 18) |
 | meme-encerramento.jpeg | JPEG | assets/images/ | meme antes do encerramento | 18 | 330x376 | em uso (baixa resolução: altura limitada a 54vh/470px) |
 
 Obs.: o projeto-fonte da animação do logo (JSX/HTML) fica em

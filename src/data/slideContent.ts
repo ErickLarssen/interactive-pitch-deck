@@ -306,10 +306,12 @@ export const documentGalleryContent: Record<string, DocumentGalleryContent> = {
     documentacao: {
         headline: 'Documentação do projeto',
         documents: [
-            { id: 'doc-navegacao', label: 'Diagrama de Navegação', src: './assets/documents/diagrama-navegacao.png' },
             { id: 'doc-casos-uso', label: 'Casos de Uso', src: './assets/documents/casos-de-uso.png' },
             { id: 'doc-idef0', label: 'IDEF-0', src: './assets/documents/idef-0.png' },
             { id: 'doc-bpmn', label: 'BPMN', src: './assets/documents/bpmn.png' },
+            { id: 'doc-eap', label: 'EAP (Estrutura Analítica)', src: './assets/documents/EAP.png' },
+            { id: 'doc-smart', label: 'Metas SMART', src: './assets/documents/smart.png' },
+            { id: 'doc-canva-mvp', label: 'MVP & Modelo de Negócios', src: './assets/documents/canva-mvp.png' },
         ],
     },
 };

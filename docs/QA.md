@@ -26,7 +26,7 @@
       já está apresentando
 - [ ] Trocar de apresentador pelo dock finaliza o anterior automaticamente
       (conferir tempo realizado registrado)
-      - [ ] Slide de Documentação: os 4 botões abrem o modal correto
+      - [ ] Slide de Documentação: os 6 botões abrem o modal correto (grade 2×3)
 - [ ] Dentro do modal: roda do mouse aproxima NO PONTO do cursor; botões
       +/−, atalhos 100–400% e teclas + − 0 aplicam zoom (até 500%);
       arrastar e setas navegam a imagem ampliada; reset volta a 100%
@@ -39,7 +39,7 @@
 - [ ] Logo da capa: aumentar --cover-logo-size não move o subtítulo/meta
 - [ ] Documento em zoom 100%: a imagem inteira aparece, sem corte nas bordas
 - [ ] Arrastar a imagem ampliada e soltar o botão fora da área do documento não trava o modal
-- [ ] Botão "X" no canto do modal sempre fecha, nos 4 documentos
+- [ ] Botão "X" no canto do modal sempre fecha, nos 6 documentos
 - [ ] Clicar na área fora do modal (fora dos 85vw/85vh) fecha o modal
 - [ ] ESC fecha o modal de documento sem precisar recarregar a página
 - [ ] Carrossel de Integrantes: card central sempre alinhado ao centro
@@ -71,7 +71,7 @@
 - [ ] Slide Stack: logos acendem no hover, TypeScript/Zod/Vitest acendem
       nos dois lados, inspector atualiza; cabe em 1366×768
 - [ ] Logos escuros (Next.js, Express, shadcn/ui) legíveis no fundo escuro
-- [ ] Slide Documentação: prévias reais dos 4 documentos; hover amplia a
+- [ ] Slide Documentação: prévias reais dos 6 documentos; hover amplia a
       prévia no ponto do mouse; resolução exibida bate com o arquivo
 - [ ] Slide Meme: janela entra "caindo", inclina com o mouse; clique no
       meme ou no botão solta a chuva de 👏

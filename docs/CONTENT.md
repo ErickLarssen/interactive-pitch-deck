@@ -84,9 +84,13 @@ Raiz: npm workspaces, ESLint, concurrently (npm run dev), seed.
 Fonte: a mesma do slide 12. Dados em techStackContent (slideContent.ts).
 
 ## 14 — Documentação
-4 botões, cada um abrindo um modal com zoom: Diagrama de Navegação,
-Casos de Uso, IDEF-0, BPMN. Documentos já produzidos pela equipe — ver
+6 botões (grade 2 linhas × 3), cada um abrindo um modal com zoom:
+Casos de Uso, IDEF-0, BPMN, EAP (Estrutura Analítica), Metas SMART,
+MVP & Modelo de Negócios. Documentos já produzidos pela equipe — ver
 src/data/slideContent.ts (documentGalleryContent).
+Nota da equipe: Diagrama de Navegação foi removido do slide em
+2026-10-30 (substituído pelos 3 documentos acima). bpmn.png também foi
+atualizado nessa data com uma versão mais clara do diagrama.
 
 ## 15 — Demonstração
 Formato: janela de navegador com capturas reais do deploy em produção

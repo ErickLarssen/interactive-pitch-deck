@@ -2303,7 +2303,7 @@ textarea {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 8px;
     font: inherit;
     color: var(--fg-primary);
     text-align: left;
@@ -2315,7 +2315,11 @@ textarea {
     --oy: 50%;
     position: relative;
     display: block;
-    aspect-ratio: 5 / 4;
+    /* 2.3/1 (não 5/4): com 6 documentos a grade vira 2 linhas — uma
+       prévia mais baixa e larga é o que deixa 2 linhas cabendo em
+       1366×768 sem cortar (object-fit: contain preserva a imagem
+       inteira mesmo nos documentos em retrato, como o smart.png). */
+    aspect-ratio: 2.3 / 1;
     overflow: hidden;
     border-radius: calc(var(--radius-lg) - 8px);
     background: #ffffff; /* os diagramas têm fundo branco */
@@ -2369,7 +2373,7 @@ textarea {
     column-gap: 12px;
     row-gap: 2px;
     align-items: baseline;
-    padding: var(--space-2) 8px 6px;
+    padding: 8px 8px 4px;
 }
 
 .doc-card__index {
@@ -2652,7 +2656,11 @@ textarea {
 
 @media (max-height: 820px) {
     .docs {
-        gap: var(--space-4);
+        gap: var(--space-3);
+    }
+
+    .docs__grid {
+        gap: 10px;
     }
 }
 

@@ -70,10 +70,21 @@ Os dois substituem o antigo tipo 'content' desses slides.
 Cards premium com a prévia real de cada documento (papel branco) e
 metadados lidos do próprio arquivo (formato + resolução, via
 naturalWidth/Height — nada digitado à mão). Clique abre o Modal com o
-DocumentViewer. No modal: índice 02 / 04, título, metadados e setas
-‹ › para trocar de documento sem fechar. Modal ganhou o tamanho
+DocumentViewer. No modal: índice (ex.: 02 / 06), título, metadados e
+setas ‹ › para trocar de documento sem fechar. Modal ganhou o tamanho
 'full' (tela cheia) e passou a renderizar via portal no <body> (ver
 ARCHITECTURE.md).
+
+### Grade de 6 documentos (2026-10-30)
+`--docs-cols` passou de `Math.min(docs.length, 4)` para
+`Math.min(docs.length, 3)`: com 6 documentos, 4 colunas deixava a
+2ª linha com só 2 cards (desbalanceado); 3 colunas dá 2 linhas de 3,
+simétrico. `.doc-card__paper` foi de aspect-ratio 5/4 para 2.3/1 —
+necessário para 2 linhas de cards caberem em 1366×768 (ver QA.md);
+`object-fit: contain` segue mostrando o documento inteiro mesmo nos
+mais "retrato" (ex.: smart.png), só com mais respiro lateral. Troque
+`--docs-cols` e o aspect-ratio juntos se o número de documentos mudar
+de novo — ambos foram calibrados para 6.
 
 ## Tipo meme (slide 18) e encerramento redesenhado (19)
 - meme (MemeSlide.tsx, memeContent): imagem numa "janela" de
