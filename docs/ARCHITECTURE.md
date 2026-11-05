@@ -128,6 +128,17 @@ em src/components/BrandIcon.tsx; itens sem logo oficial (sessões,
 segurança, concurrently, seed) usam lucide.
 Impacto: uma dependência a mais; nenhum asset remoto.
 
+## Decisão: prism-react-renderer para o syntax highlight do slide Código
+Problema: o slide 14 (Código) precisa mostrar trechos reais de
+TypeScript com cores — sem isso, vira texto monocromático difícil de
+ler do fundo do auditório, e destoa do resto do deck (que já colore
+código/terminal em outros slides, ex. Arquitetura).
+Nova proposta: pacote prism-react-renderer (React, tema próprio em
+src/components/codeEditorTheme.ts usando as cores da marca em vez do
+tema padrão) — 100% local/bundlado, sem CDN nem fonte externa,
+consistente com o resto do projeto.
+Impacto: uma dependência a mais (pequena); nenhum asset remoto.
+
 ## Decisão: Modal renderizado via portal no <body>
 Decisão anterior: o Modal era renderizado dentro do próprio slide.
 Problema: o container do slide recebe transform do GSAP na transição;
@@ -175,3 +186,22 @@ Resultado: `npm run build` produz uma pasta `dist/` com só um
 com dois cliques funciona em qualquer PC Windows com um navegador,
 sem instalar nada e sem internet. Testado via Chrome headless
 (`file://`) com sucesso em 2026-10-25.
+
+## Decisão: dist/ versionado no repositório
+Decisão anterior: `dist/` no .gitignore (artefato de build, nunca
+versionado — convenção padrão).
+Problema: no teste no auditório (2026-10-25/30), o pendrive da equipe
+falhou e não havia `dist/` no repositório como alternativa — ninguém
+conseguiu gerar um novo build ali (sem Node/npm no PC do auditório).
+Os colegas de equipe também precisam do `dist/` pronto pra treinar em
+casa, sem rodar o projeto.
+Nova proposta: versionar `dist/` também (tirado do .gitignore).
+`git clone`/`git pull` sozinho já entrega um `dist/` pronto pra abrir
+com duplo clique — nenhuma outra ferramenta necessária, nem no PC do
+auditório nem na casa de um colega.
+Impacto: repositório cresce (~55-60 MB a mais por commit que mexer em
+`dist/`, acumulando no histórico); `dist/` é gerado, não é fonte —
+**sempre rodar `npm run build` e recommitar `dist/` depois de QUALQUER
+mudança em `src/`/`public/`**, ou o conteúdo versionado fica
+desatualizado silenciosamente. Nenhuma CI garante isso automaticamente
+neste projeto; é disciplina manual da equipe.

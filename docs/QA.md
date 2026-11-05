@@ -71,6 +71,10 @@
 - [ ] Slide Stack: logos acendem no hover, TypeScript/Zod/Vitest acendem
       nos dois lados, inspector atualiza; cabe em 1366×768
 - [ ] Logos escuros (Next.js, Express, shadcn/ui) legíveis no fundo escuro
+- [ ] Slide Código: as 3 tabs (React, API, MongoDB) trocam o par
+      código↔captura juntos, com crossfade; syntax highlight legível;
+      nenhuma linha de código corta nem estoura a largura do editor;
+      cabe em 1366×768
 - [ ] Slide Documentação: prévias reais dos 6 documentos; hover amplia a
       prévia no ponto do mouse; resolução exibida bate com o arquivo
 - [ ] Slide Meme: janela entra "caindo", inclina com o mouse; clique no

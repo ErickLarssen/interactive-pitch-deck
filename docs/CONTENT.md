@@ -83,7 +83,21 @@ mongodb-memory-server).
 Raiz: npm workspaces, ESLint, concurrently (npm run dev), seed.
 Fonte: a mesma do slide 12. Dados em techStackContent (slideContent.ts).
 
-## 14 — Documentação
+## 14 — Código
+Pedido do professor: mostrar, de forma concreta, as tecnologias
+aprendidas no semestre (React, API, MongoDB) — não o código inteiro,
+só um recorte real. Três abas (React, API, MongoDB), cada uma com um
+trecho real do repositório EcoByte (github.com/ErickLarssen/EcoByte)
+de um lado e uma captura do EcoByte rodando do outro, ligados pela
+mesma funcionalidade: solicitar uma coleta.
+- React: hook `useCreateCollection` (TanStack Query) — frontend/src/hooks/use-client-collections.ts.
+- API: rota `POST /api/v1/collections` (Express) — backend/src/controllers/collection.controller.ts.
+- MongoDB: schema Mongoose da coleção `collections` — backend/src/models/collection.model.ts.
+Capturas tiradas localmente (localhost, login de teste do seed do
+projeto) em 2026-11-05 — nunca do deploy público, que exige login
+real. Ver ASSETS.md e src/data/slideContent.ts (codeShowcaseContent).
+
+## 15 — Documentação
 6 botões (grade 2 linhas × 3), cada um abrindo um modal com zoom:
 Casos de Uso, IDEF-0, BPMN, EAP (Estrutura Analítica), Metas SMART,
 MVP & Modelo de Negócios. Documentos já produzidos pela equipe — ver
@@ -92,7 +106,7 @@ Nota da equipe: Diagrama de Navegação foi removido do slide em
 2026-10-30 (substituído pelos 3 documentos acima). bpmn.png também foi
 atualizado nessa data com uma versão mais clara do diagrama.
 
-## 15 — Demonstração
+## 16 — Demonstração
 Formato: janela de navegador com capturas reais do deploy em produção
 (eco-byte-neon.vercel.app), não um app ao vivo — ver ASSETS.md sobre o
 porquê. Três telas públicas, selecionáveis na lateral (hover prévia,
@@ -118,7 +132,7 @@ Europa, 4) está correto — o ecoponto fica em São Bernardo do Campo,
 na divisa com Diadema. A coleta em si continua restrita a Diadema; só
 o ponto físico de destinação fica do outro lado da divisa.
 
-## 16 — Resultados esperados
+## 17 — Resultados esperados
 Metas iniciais informadas pela equipe (NÃO são resultados medidos — o
 sistema está em desenvolvimento; o slide diz isso e marca cada número
 com o selo tracejado "Meta inicial"):
@@ -131,17 +145,17 @@ números (ou a base da taxa) antes da apresentação. Por isso o slide não
 desenha proporções entre indicadores (a linha da jornada indica só a
 ordem das etapas).
 
-## 17 — Próximos passos
+## 18 — Próximos passos
 Validar → Conectar → Expandir → Evoluir.
 Visual: roadmap (Fase 01–04) com marcos que crescem a cada fase —
 metáfora de escala, não representa dado.
 
-## 18 — Meme
+## 19 — Meme
 Imagem public/assets/images/meme-encerramento.jpeg (Homer: "Fim do
 slide. Acho bom você bater palmas e não fazer perguntas."). Botão
 "Clique para aplaudir" (chuva de 👏). Alt text descreve o meme.
 
-## 19 — Encerramento
+## 20 — Encerramento
 Ápice visual: APNG em loop do logo (public/assets/videos/
 ECOBYTE-logo-animado.png); se falhar, cai para o logo estático.
 "O eletrônico pode ter chegado ao fim. O impacto dele não precisa

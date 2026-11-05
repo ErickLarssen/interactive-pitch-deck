@@ -40,7 +40,7 @@ Um componente por tipo em src/slides/, nome PascalCase + sufixo Slide
 ## Tipo de slide adicionado: document-gallery
 Renderiza N botões (definidos em slideContent.ts); cada um abre um
 Modal (variante size="large") contendo um DocumentViewer com zoom.
-Usado no slide 14 (Documentação).
+Usado no slide 15 (Documentação).
 ## Variante de layout: info-cards 'journey'
 InfoCardsContent.layout = 'journey' (hoje só no slide 04 — Problema)
 troca a grade padrão por JourneyCards: cards numerados (01–03) com
@@ -66,7 +66,20 @@ campos renderiza o visual anterior.
   = mesma tecnologia (acendem juntas).
 Os dois substituem o antigo tipo 'content' desses slides.
 
-## document-gallery (slide 14) — redesign
+## Tipo de slide: code-showcase (slide 14 — Código)
+CodeShowcaseSlide.tsx + codeShowcaseContent (src/data/slideContent.ts).
+Pedido do professor: mostrar trechos reais do código (React, API,
+MongoDB) lado a lado com uma captura do EcoByte rodando a mesma
+funcionalidade. Três tabs com ícone de marca (BrandIcon, mesmo padrão
+do Stack) trocam o par código↔captura (crossfade via `key={mode}`,
+igual ao Demo). Editor de código: `code-editor` (barra com "semáforo"
+neutro, caminho do arquivo real, syntax highlight via
+`prism-react-renderer` — tema próprio, sem CDN, 100% local). Conteúdo
+de `code` é cópia literal (verbatim) de um trecho do repositório
+EcoByte, nunca reescrito — só recortado; `filePath` aponta pro arquivo
+de origem para quem quiser conferir no GitHub.
+
+## document-gallery (slide 15) — redesign
 Cards premium com a prévia real de cada documento (papel branco) e
 metadados lidos do próprio arquivo (formato + resolução, via
 naturalWidth/Height — nada digitado à mão). Clique abre o Modal com o
@@ -86,7 +99,7 @@ mais "retrato" (ex.: smart.png), só com mais respiro lateral. Troque
 `--docs-cols` e o aspect-ratio juntos se o número de documentos mudar
 de novo — ambos foram calibrados para 6.
 
-## Tipo meme (slide 18) e encerramento redesenhado (19)
+## Tipo meme (slide 19) e encerramento redesenhado (20)
 - meme (MemeSlide.tsx, memeContent): imagem numa "janela" de
   visualizador (nome e resolução lidos do arquivo), borda luminosa
   girando, inclinação 3D e chuva de aplausos no clique. Pré-carrega o
@@ -96,18 +109,18 @@ de novo — ambos foram calibrados para 6.
   onda de choque no clique no logo, tagline e "Obrigado." em gradiente.
   O mesh escuro da capa (PresentationShell) também fica ativo aqui.
 
-## Tipo goals (slide 16 — Resultados esperados)
+## Tipo goals (slide 17 — Resultados esperados)
 GoalsSlide.tsx + goalsContent: jornada operacional (3 cards ligados por
 linha — ordem, não proporção) e destaques (resíduos com balança; taxa
 com medidor circular via GoalItem.gauge). value é exibido exatamente
 como a equipe informou; CountUpValue anima só o número.
 
-## Layout 'roadmap' (slide 17)
+## Layout 'roadmap' (slide 18)
 SequentialStepsContent.layout = 'roadmap' → RoadmapSteps.tsx (detalhes
 visuais em DESIGN_SYSTEM.md). Etapas com iconKey; closingPhrase em
 premium-callout.
 
-## Tipo de slide: demo (slide 15 — Demonstração)
+## Tipo de slide: demo (slide 16 — Demonstração)
 DemoSlide.tsx + demoContent (src/data/slideContent.ts). Janela de
 navegador (demo-window) com capturas reais do deploy em produção
 (eco-byte-neon.vercel.app) — nunca um `<iframe>` ao vivo: ver

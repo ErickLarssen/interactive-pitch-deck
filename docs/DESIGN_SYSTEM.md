@@ -151,7 +151,7 @@ Aplicação por slide:
   parceiro (reforça a nota da equipe: nunca parecer parceria firmada).
 - 08 ODS: faixa superior na cor oficial ONU de cada ODS (#FD9D24,
   #BF8B2E, #3F7E44) — só decorativa, texto nunca usa essa cor.
-O slide 17 (Próximos passos) compartilha o componente de etapas com
+O slide 18 (Próximos passos) compartilha o componente de etapas com
 o 09, mas usa o layout próprio 'roadmap' (ver abaixo).
 
 ## Slides técnicos (12 Arquitetura, 13 Stack)
@@ -167,17 +167,17 @@ Pacote de requisição = azul da marca; de resposta = verde.
 
 ## Selo tracejado = "ainda não é realidade"
 Borda tracejada marca o que é potencial/meta, não fato: "Potencial
-parceiro" (slide 7) e "Meta inicial" (slide 16). Borda sólida = algo
+parceiro" (slide 7) e "Meta inicial" (slide 17). Borda sólida = algo
 que existe. Manter essa linguagem em novos slides.
 
-## Layout 'roadmap' (slide 17 — Próximos passos)
+## Layout 'roadmap' (slide 18 — Próximos passos)
 SequentialStepsContent.layout = 'roadmap' → RoadmapSteps.tsx: linha do
 tempo (Fase 01–04) com um marco por etapa, cards premium alinhados a
 cada marco (StepItem.iconKey) e closingPhrase em premium-callout.
 Diferente do 'journey' do slide 09 de propósito: aqui a ideia é escala
 no tempo, não um fluxo de uso.
 
-## Roadmap (slide 17)
+## Roadmap (slide 18)
 Marcos crescem de 14px a 35px e passam do azul ao verde da marca
 (color-mix por índice) — metáfora de "começar pequeno e escalar", sem
 representar dado. Hover no card preenche e acende o marco dele.

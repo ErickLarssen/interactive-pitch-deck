@@ -1,8 +1,9 @@
 # Dependências
 node_modules/
 
-# Build do Vite
-dist/
+# Build do Vite — versionado de propósito (ver ARCHITECTURE.md:
+# "Decisão: dist/ versionado"). Rebuilde e recommite a cada mudança
+# de código antes de redistribuir pendrives.
 
 # Artefatos gerados pelo `tsc -b`
 *.tsbuildinfo

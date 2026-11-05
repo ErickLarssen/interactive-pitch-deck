@@ -11,6 +11,7 @@ import {
     MemeContent,
     GoalsContent,
     DemoContent,
+    CodeShowcaseContent,
 } from '../types';
 
 export const statHighlightContent: Record<string, StatHighlightContent> = {
@@ -500,6 +501,98 @@ export const demoContent: Record<string, DemoContent> = {
                 description: 'Todo o material recolhido pela equipe EcoByte é levado ao nosso ecoponto, em Diadema.',
                 src: './assets/images/demo/demo-ecoponto.jpg',
                 iconKey: 'recycle',
+            },
+        ],
+    },
+};
+
+// Slide 14 — Código. Trechos VERBATIM (copiados, só recortados — nunca
+// reescritos) do repositório real do EcoByte (github.com/ErickLarssen/EcoByte,
+// commit de 2026-11-05). Capturas tiradas rodando o projeto localmente
+// (localhost, login de teste do próprio seed) — ver docs/ASSETS.md.
+export const codeShowcaseContent: Record<string, CodeShowcaseContent> = {
+    codigo: {
+        eyebrow: 'Por trás da tela',
+        headline: 'React, API e MongoDB em ação',
+        intro: 'Um recorte real do código do EcoByte, lado a lado com a tela que ele gera.',
+        repoNote: 'github.com/ErickLarssen/EcoByte',
+        snippets: [
+            {
+                id: 'code-react',
+                label: 'React',
+                iconKey: 'react',
+                filePath: 'frontend/src/hooks/use-client-collections.ts',
+                language: 'ts',
+                code: `// Criação de coleta: invalida as listas e já guarda o detalhe da nova coleta (11 §96).
+export function useCreateCollection() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload: CreateCollectionPayload) => createCollection(payload),
+    onSuccess: (collection: ClientCollection) => {
+      queryClient.setQueryData(clientCollectionKeys.detail(collection.id), collection);
+      return queryClient.invalidateQueries({ queryKey: [...clientCollectionKeys.all, "list"] });
+    },
+  });
+}`,
+                description: 'Hook do TanStack Query: dispara a criação da coleta e já atualiza o cache, sem recarregar a página.',
+                screenshot: {
+                    src: './assets/images/code/code-form-coleta.jpg',
+                    alt: 'Formulário real "Solicitar coleta" do EcoByte, rodando localmente',
+                    caption: 'Tela real "Solicitar coleta" — é esse hook que dispara ao enviar o formulário.',
+                },
+            },
+            {
+                id: 'code-api',
+                label: 'API',
+                iconKey: 'express',
+                filePath: 'backend/src/controllers/collection.controller.ts',
+                language: 'ts',
+                code: `// POST /api/v1/collections — o CEP é conferido na área de atendimento (DEC-081).
+export function create(cepProvider: CepProvider) {
+  return async (req: Request, res: Response): Promise<void> => {
+    await assertCepInServiceArea(cepProvider, req.body.enderecoColeta.cep, "enderecoColeta.cep");
+    const collection = await createCollection(userId(req), req.body);
+    // Coletores ativos são avisados da nova coleta disponível (DEC-084).
+    await notifyCollectorsOfNewCollection(collection.id);
+    sendSuccess(res, 201, "Coleta solicitada com sucesso.", { collection });
+  };
+}`,
+                description: 'Rota Express que recebe a solicitação, valida se o CEP está na área atendida e cria a coleta no banco.',
+                screenshot: {
+                    src: './assets/images/code/code-dashboard-coleta.jpg',
+                    alt: 'Painel do cliente EcoByte mostrando coletas recém-criadas, rodando localmente',
+                    caption: 'Painel do cliente — cada card aqui é uma coleta que passou por essa rota.',
+                },
+            },
+            {
+                id: 'code-mongo',
+                label: 'MongoDB',
+                iconKey: 'mongodb',
+                filePath: 'backend/src/models/collection.model.ts',
+                language: 'ts',
+                code: `// Coleção \`collections\` (07_DATABASE_MONGODB §14, DEC-061).
+const collectionSchema = new Schema(
+  {
+    usuarioId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    enderecoColeta: { type: enderecoColetaSchema, required: true },
+    itensDescarte: { type: [itemDescarteSchema] },
+    status: {
+      type: String,
+      enum: COLLECTION_STATUSES,
+      default: INITIAL_COLLECTION_STATUS,
+    },
+  },
+  { timestamps: true },
+);
+
+export const Collection = model("Collection", collectionSchema, "collections");`,
+                description: 'Schema Mongoose da coleção `collections`: campos, validações e o status de cada coleta — é daqui que vem a linha do tempo.',
+                screenshot: {
+                    src: './assets/images/code/code-timeline-coleta.jpg',
+                    alt: 'Linha do tempo de status de uma coleta real, rodando localmente',
+                    caption: 'Linha do tempo de uma coleta real — cada etapa vem de um campo deste schema.',
+                },
             },
         ],
     },

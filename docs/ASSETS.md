@@ -3,10 +3,25 @@
 ## Inventário
 | arquivo | tipo | local | uso | slide | dimensões | status |
 |---|---|---|---|---|---|---|
-| eco-motion-loop.mp4 | MP4 | assets/videos/ | background capa/solução/encerramento | 01, 09, 19 | 1920x1080 | em uso |
-| eco-motion-loop-poster.jpg | JPG | assets/videos/ | poster/fallback do vídeo acima | 01, 09, 18 | 1920x1080 | em uso |
+| eco-motion-loop.mp4 | MP4 | assets/videos/ | background capa/solução/encerramento | 01, 09, 20 | 1920x1080 | em uso |
+| eco-motion-loop-poster.jpg | JPG | assets/videos/ | poster/fallback do vídeo acima | 01, 09, 19 | 1920x1080 | em uso |
 
-## Documentação (slide 14) — galeria de 6 documentos
+## Código (slide 14) — capturas do EcoByte real rodando em localhost
+| arquivo | tipo | local | uso | dimensões | status |
+|---|---|---|---|---|---|
+| code-form-coleta.jpg | JPG | assets/images/code/ | aba React — formulário real "Solicitar coleta" | 1536×695 | em uso |
+| code-dashboard-coleta.jpg | JPG | assets/images/code/ | aba API — painel do cliente após a coleta ser criada | 1536×695 | em uso |
+| code-timeline-coleta.jpg | JPG | assets/images/code/ | aba MongoDB — linha do tempo de status de uma coleta real | 1536×695 | em uso |
+
+Capturadas em 2026-11-05 rodando o repositório EcoByte
+(github.com/ErickLarssen/EcoByte) localmente — `npm run dev` nos dois
+workspaces, MongoDB local já conectado, login com um usuário de
+teste do próprio seed do projeto (backend/src/database/seed/data.ts,
+`mariana@ecobyte.local` — nunca uma credencial real, e só em
+localhost). Nunca o deploy público: a área do cliente exige login,
+e não se testa credencial alguma fora de localhost. Ver CodeShowcaseSlide.tsx.
+
+## Documentação (slide 15) — galeria de 6 documentos
 | arquivo | tipo | local | uso | dimensões | status |
 |---|---|---|---|---|---|
 | casos-de-uso.png | PNG | assets/documents/ | modal documentação — 01 Casos de Uso | 990×1022 | em uso |
@@ -21,13 +36,13 @@ mais referenciado em slideContent.ts) — pedido da equipe em
 2026-10-30. Grade do slide foi de 4 documentos (1 linha) para 6 (2
 linhas de 3); ver DESIGN_SYSTEM.md e docs/SLIDE_SYSTEM.md.
 
-## Demonstração (slide 15) — capturas do deploy em produção
+## Demonstração (slide 16) — capturas do deploy em produção
 | arquivo | tipo | local | uso | slide | dimensões | status |
 |---|---|---|---|---|---|---|
-| demo-home.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Início") | 15 | 1536x695 | em uso |
-| demo-como-funciona.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Como funciona") | 15 | 1536x695 | em uso |
-| demo-ecoponto.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Ecoponto") | 15 | 1536x695 | em uso |
-| demo-walkthrough.mp4 | MP4 | assets/videos/ | modo "Vídeo (plano B)" do slide de demonstração | 15 | 1:34, 25,4 MB | em uso |
+| demo-home.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Início") | 16 | 1536x695 | em uso |
+| demo-como-funciona.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Como funciona") | 16 | 1536x695 | em uso |
+| demo-ecoponto.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Ecoponto") | 16 | 1536x695 | em uso |
+| demo-walkthrough.mp4 | MP4 | assets/videos/ | modo "Vídeo (plano B)" do slide de demonstração | 16 | 1:34, 25,4 MB | em uso |
 
 Capturadas de eco-byte-neon.vercel.app (páginas públicas, sem login).
 Deliberadamente capturas locais, não um `<iframe>` ao vivo apontando
@@ -37,7 +52,7 @@ funcionando sem internet no telão. Textos do slide (headline, url,
 descrição de cada tela) são cópia real do próprio site, não inventados.
 
 ### Exceção deliberada: um link real para a internet
-O slide 15 também tem um botão "Abrir site ao vivo"
+O slide 16 também tem um botão "Abrir site ao vivo"
 (`<a target="_blank">` para `eco-byte-neon.vercel.app`) — a ÚNICA
 dependência de internet do deck inteiro. Não contraria a regra acima
 porque não é um asset carregado automaticamente: só abre se o
@@ -56,11 +71,11 @@ ver DemoSlide.tsx (`videoError`/`onError`).
 - Nenhum asset essencial vindo de URL externa.
 - Ícones de ODS: usar os oficiais fornecidos, sem alterar cor sem necessidade.
 
-## Meme e encerramento (slides 18–19)
+## Meme e encerramento (slides 19–20)
 | arquivo | tipo | local | uso | slide | dimensões | status |
 |---|---|---|---|---|---|---|
-| ECOBYTE-logo-animado.png | APNG (125 quadros, loop 5 s) | assets/videos/ | logo animado do encerramento | 19 | 480x336 | em uso (~15 MB; pré-carregado no slide 18) |
-| meme-encerramento.jpeg | JPEG | assets/images/ | meme antes do encerramento | 18 | 330x376 | em uso (baixa resolução: altura limitada a 54vh/470px) |
+| ECOBYTE-logo-animado.png | APNG (125 quadros, loop 5 s) | assets/videos/ | logo animado do encerramento | 20 | 480x336 | em uso (~15 MB; pré-carregado no slide 19) |
+| meme-encerramento.jpeg | JPEG | assets/images/ | meme antes do encerramento | 19 | 330x376 | em uso (baixa resolução: altura limitada a 54vh/470px) |
 
 Obs.: o projeto-fonte da animação do logo (JSX/HTML) fica em
 design-source/Logo animation request/ — fora de public/, então não vai

@@ -61,33 +61,39 @@ Tiles com inclinação 3D seguindo o mouse (máx. 10°, sem transição
 longa) e escala 1.06 no hover. Inspector troca com fade 0,35s + linha
 de varredura. Reduced motion: sem inclinação nem varredura.
 
-## Documentação (slide 14)
+## Código (slide 14)
+Tabs e editor entram com useStaggerReveal. Troca de tab: crossfade
+0,35s (`inspector-in`, mesma keyframe do Inspector do Stack/Demo) no
+bloco de código e na captura juntos — nunca um sem o outro. Reduced
+motion: sem crossfade, estado final direto.
+
+## Documentação (slide 15)
 Cards entram com useStaggerReveal. Prévia: scale 2.2 com
 transform-origin no ponto do mouse (0,35s). Modal: entrada 0,28s
 (fade + 12px + escala 0,985). Zoom por botão/tecla anima 0,22s; roda
 do mouse e arraste aplicam direto (sem transição), para acompanhar a
 mão sem atraso.
 
-## Meme (slide 18)
+## Meme (slide 19)
 Entrada da janela: cai 40px de -6° e assenta em -1,5° (0,7s,
 power2.out). Borda: conic-gradient girando (6s, @property
 --meme-angle). Aplausos: 14 👏 por clique, 1,1–1,7s, opacos até 60%
 do voo. Reduced motion: sem borda girando, sem inclinação, sem chuva.
 
-## Encerramento (slide 19)
+## Encerramento (slide 20)
 Palavras sobem de uma máscara (stagger 45ms) → palco do logo (escala
 0,86→1, 0,9s) → tagline e "Obrigado." (stagger 140ms). Loops lentos:
 anéis 90s / 40s (sentido oposto) / órbita 14s, brilho "respirando" 5s.
 APNG: loop próprio de 5s (125 quadros). Reduced motion: estado final
 direto, sem loops CSS (o APNG em si continua animando — é o conteúdo).
 
-## Resultados esperados (slide 16)
+## Resultados esperados (slide 17)
 Cards com useStaggerReveal; linha da jornada desenha (scaleX 0,9s);
 números contam (CountUpValue, 1,2s, escalonados); medidor da taxa
 preenche até a meta junto com a contagem; balança "se equilibra" uma
 vez (1,8s). Reduced motion: estado final direto.
 
-## Demonstração (slide 15)
+## Demonstração (slide 16)
 Janela e tiles entram com useStaggerReveal. Troca de tela: crossfade
 0,4s (mesma keyframe `inspector-in` do Inspector do Stack) na imagem e
 na descrição; ponto "ao vivo" pulsa em loop lento (2,4s). Troca de modo
@@ -95,7 +101,7 @@ na descrição; ponto "ao vivo" pulsa em loop lento (2,4s). Troca de modo
 mesma keyframe `inspector-in` (0,35s) — nunca um corte seco. Reduced
 motion: sem crossfade, pulso nem entrada de modo; estado final direto.
 
-## Próximos passos (slide 17)
+## Próximos passos (slide 18)
 Linha do roadmap se preenche (1,6s, power1.inOut); cada marco acende
 quando a linha passa por ele e o card correspondente sobe logo depois
 (timeline única). clearProps nos marcos e cards libera o transform

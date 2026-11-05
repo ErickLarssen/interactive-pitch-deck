@@ -13,7 +13,8 @@ export type SlideType =
     | 'tech-stack'
     | 'meme'
     | 'goals'
-    | 'demo';
+    | 'demo'
+    | 'code-showcase';
 
 // Ícones de tecnologia: logos de marca (simple-icons) ou, sem logo
 // oficial, ícone de linha lucide. Registro em components/BrandIcon.tsx.
@@ -316,4 +317,26 @@ export interface DemoContent {
     hint: string;
     screens: DemoScreen[];
     video: DemoVideo;
+}
+
+// Slide de código (14). Trecho de código real do repositório EcoByte
+// (verbatim, só recortado — nunca reescrito) pareado com uma captura
+// do EcoByte rodando a mesma funcionalidade. iconKey reaproveita o
+// registro de marca do Stack (BrandIcon/TechIconKey).
+export interface CodeSnippet {
+    id: string;
+    label: string;
+    iconKey: TechIconKey;
+    filePath: string;
+    language: 'ts' | 'tsx';
+    code: string;
+    description: string;
+    screenshot: { src: string; alt: string; caption: string };
+}
+export interface CodeShowcaseContent {
+    eyebrow: string;
+    headline: string;
+    intro?: string;
+    repoNote: string;
+    snippets: CodeSnippet[];
 }

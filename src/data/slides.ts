@@ -14,6 +14,7 @@ export const slides: SlideConfig[] = [
     { id: 'funcionalidades', title: 'Funcionalidades', type: 'info-cards', theme: 'dark' },
     { id: 'arquitetura', title: 'Arquitetura', type: 'architecture', theme: 'dark' },
     { id: 'stack', title: 'Stack', type: 'tech-stack', theme: 'dark' },
+    { id: 'codigo', title: 'Código', type: 'code-showcase', theme: 'dark' },
     { id: 'documentacao', title: 'Documentação', type: 'document-gallery', theme: 'dark' },
     { id: 'demonstracao', title: 'Demonstração', type: 'demo', theme: 'dark' },
     { id: 'resultados', title: 'Resultados esperados', type: 'goals', theme: 'dark' },

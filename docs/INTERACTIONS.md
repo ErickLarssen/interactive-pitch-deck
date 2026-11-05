@@ -48,7 +48,12 @@ fixa a seleção. A mesma tecnologia no outro workspace acende junto
 (ex.: TypeScript, Zod, Vitest). Obs.: Espaço continua avançando slide
 (atalho global) — para ativar botões use Enter ou clique.
 
-## Visualizador de documentos (slide 14)
+## Código (slide 14)
+Clique numa tab (React/API/MongoDB) troca o par código↔captura —
+mesmo padrão de clique-fixa do Stack, sem hover-prévia (código não se
+lê em relance, por isso não troca sozinho ao passar o mouse).
+
+## Visualizador de documentos (slide 15)
 Pensado para o fundo do auditório: aproximar exatamente no ponto que
 o apresentador aponta.
 - Roda do mouse: zoom no ponto do cursor (1–500%).
@@ -62,16 +67,16 @@ o apresentador aponta.
 Barra de zoom e dica ficam ABAIXO do documento, nunca sobre ele.
 Na galeria, o hover amplia a prévia a partir do ponto do mouse.
 
-## Meme (slide 18)
+## Meme (slide 19)
 Clique no meme (no ponto clicado) ou no botão "Clique para aplaudir"
 (Enter) → chuva de 👏. Mouse inclina a janela em 3D.
 
-## Encerramento (slide 19)
+## Encerramento (slide 20)
 Mouse inclina o palco inteiro (logo e anéis juntos, sempre concêntricos —
 sem deslocamento próprio de cada camada).
 Clique/Enter no logo → onda de choque.
 
-## Demonstração (slide 15)
+## Demonstração (slide 16)
 Tela da janela: hover numa tela da lista faz prévia (sem fixar);
 clique fixa a seleção — mesmo padrão hover-prévia/click-fixa do Stack
 (slide 13). Clique na janela abre o Modal com DocumentViewer (zoom/pan
