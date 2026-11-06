@@ -109,6 +109,6 @@
 - [x] Slide Demonstração, modo Vídeo: demo-walkthrough.mp4 carrega (sem
       cair no placeholder "Vídeo ainda não adicionado") e
       play/pause/volume/tela cheia funcionam pelos controles nativos —
-      testado em 2026-10-15 (1:34, 25,4 MB)
+      testado em 2026-11-05, após o vídeo ser substituído (2:51, 74,2 MB)
 - [ ] Encerramento: logo visualmente centrado nos anéis (inclusive com o
       mouse parado num canto da tela)

@@ -42,7 +42,7 @@ linhas de 3); ver DESIGN_SYSTEM.md e docs/SLIDE_SYSTEM.md.
 | demo-home.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Início") | 16 | 1536x695 | em uso |
 | demo-como-funciona.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Como funciona") | 16 | 1536x695 | em uso |
 | demo-ecoponto.jpg | JPG | assets/images/demo/ | janela do slide de demonstração (tela "Ecoponto") | 16 | 1536x695 | em uso |
-| demo-walkthrough.mp4 | MP4 | assets/videos/ | modo "Vídeo (plano B)" do slide de demonstração | 16 | 1:34, 25,4 MB | em uso |
+| demo-walkthrough.mp4 | MP4 | assets/videos/ | modo "Vídeo (plano B)" do slide de demonstração | 16 | 2:51, 74,2 MB | em uso (substituído em 2026-11-05) |
 
 Capturadas de eco-byte-neon.vercel.app (páginas públicas, sem login).
 Deliberadamente capturas locais, não um `<iframe>` ao vivo apontando
